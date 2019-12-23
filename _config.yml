@@ -1,7 +1,7 @@
 # Site settings
 title: Heyal Solutions Ltd
 email: sales@heyal.co.uk
-description: > Cloud Native and DevOps consultancy focusing on transforming businesses into customer focused delivey experts
+description: Cloud Native and DevOps consultancy focusing on transforming businesses into customer focused delivey experts
 baseurl: "" # the subpath of your site, e.g. /blog/
 url: "https://heyal.co.uk" # the base hostname & protocol for your site
 
