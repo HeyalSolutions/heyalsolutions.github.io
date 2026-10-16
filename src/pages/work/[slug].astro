@@ -27,7 +27,7 @@ const details = [
       study.data.stack.length > 0 && (
         <ul role="list" class="mt-8 flex flex-wrap gap-2">
           {study.data.stack.map((tool) => (
-            <li class="rounded-full bg-white px-3 py-1 text-sm/6 text-ink-700 ring-1 ring-ink-200">{tool}</li>
+            <li class="rounded-full bg-surface px-3 py-1 text-sm/6 text-ink-700 ring-1 ring-ink-200">{tool}</li>
           ))}
         </ul>
       )
@@ -43,7 +43,7 @@ const details = [
             {study.data.results.map((r) => <li class="text-base/7 font-medium">{r}</li>)}
           </ul>
         </div>
-        <dl class="space-y-6 rounded-2xl bg-white p-8 ring-1 ring-ink-200 text-sm/6">
+        <dl class="space-y-6 rounded-2xl bg-surface p-8 ring-1 ring-ink-200 text-sm/6">
           {
             details.map((d) => (
               <div>
@@ -59,7 +59,7 @@ const details = [
                 {
                   services.map((s) => (
                     <li>
-                      <a href={`/services/${s.id}/`} class="font-medium text-brand-700 hover:text-brand-600">
+                      <a href={`/services/${s.id}/`} class="font-medium text-brand-700 dark:text-brand-300 hover:text-brand-600 dark:hover:text-brand-200">
                         {s.data.title}
                       </a>
                     </li>

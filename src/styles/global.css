@@ -1,6 +1,9 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
+/* Dark mode is driven by data-theme on <html>, set by the inline script in Base.astro. */
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
 @theme {
   --font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;
 
@@ -30,10 +33,30 @@
   --color-ink-900: #1f1d1a;
   --color-ink-950: #141311;
 
+  /* Card and panel background */
+  --color-surface: #ffffff;
+
   /* Warm amber accent */
   --color-accent-300: #f8c48a;
   --color-accent-400: #f5a65b;
   --color-accent-500: #ec8a35;
+}
+
+/* Dark theme: flip the neutral scale so ink-50 is the darkest and ink-900 the lightest. */
+[data-theme="dark"] {
+  color-scheme: dark;
+  --color-ink-50: #141311;
+  --color-ink-100: #1f1d1a;
+  --color-ink-200: #34312d;
+  --color-ink-300: #4d4943;
+  --color-ink-400: #635e54;
+  --color-ink-500: #8f897c;
+  --color-ink-600: #b3ada1;
+  --color-ink-700: #c8c3b8;
+  --color-ink-800: #e0ddd5;
+  --color-ink-900: #efede8;
+  --color-ink-950: #f8f7f4;
+  --color-surface: #1b1a17;
 }
 
 html {

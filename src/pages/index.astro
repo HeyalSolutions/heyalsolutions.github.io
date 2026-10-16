@@ -19,12 +19,12 @@ const dateFormat = new Intl.DateTimeFormat("en-GB", { month: "short", year: "num
         class="absolute inset-0 bg-[linear-gradient(to_right,var(--color-ink-200)_1px,transparent_1px),linear-gradient(to_bottom,var(--color-ink-200)_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_70%_60%_at_50%_40%,#000_40%,transparent_100%)]"
       >
       </div>
-      <div class="absolute top-10 left-1/2 size-[36rem] -translate-x-[70%] rounded-full bg-brand-300/30 blur-3xl"></div>
-      <div class="absolute top-36 left-1/2 size-[28rem] translate-x-[5%] rounded-full bg-accent-300/30 blur-3xl"></div>
+      <div class="absolute top-10 left-1/2 size-[36rem] -translate-x-[70%] rounded-full bg-brand-300/30 dark:bg-brand-600/20 blur-3xl"></div>
+      <div class="absolute top-36 left-1/2 size-[28rem] translate-x-[5%] rounded-full bg-accent-300/30 dark:bg-accent-500/10 blur-3xl"></div>
     </div>
     <div class="mx-auto max-w-4xl px-6 py-28 text-center sm:py-40 lg:px-8">
       <p
-        class="inline-flex rounded-full bg-white/60 px-3 py-1 text-sm/6 font-medium text-ink-600 ring-1 ring-ink-900/10 backdrop-blur"
+        class="inline-flex rounded-full bg-surface/60 px-3 py-1 text-sm/6 font-medium text-ink-600 ring-1 ring-ink-900/10 backdrop-blur"
       >
         Cloud native platform consultancy
       </p>
@@ -50,10 +50,10 @@ const dateFormat = new Intl.DateTimeFormat("en-GB", { month: "short", year: "num
   </section>
 
   <!-- Problems -->
-  <section class="border-y border-ink-200 bg-white py-24 sm:py-32">
+  <section class="border-y border-ink-200 bg-surface py-24 sm:py-32">
     <div class="mx-auto max-w-7xl px-6 lg:px-8">
       <div class="max-w-2xl">
-        <h2 class="text-base/7 font-semibold text-brand-600">Sound familiar?</h2>
+        <h2 class="text-base/7 font-semibold text-brand-600 dark:text-brand-400">Sound familiar?</h2>
         <p class="mt-2 text-4xl font-semibold tracking-tight text-pretty text-ink-900 sm:text-5xl">
           The platform should speed you up, not hold you back
         </p>
@@ -80,12 +80,12 @@ const dateFormat = new Intl.DateTimeFormat("en-GB", { month: "short", year: "num
     <div class="mx-auto max-w-7xl px-6 lg:px-8">
       <div class="flex flex-wrap items-end justify-between gap-6">
         <div class="max-w-2xl">
-          <h2 class="text-base/7 font-semibold text-brand-600">Services</h2>
+          <h2 class="text-base/7 font-semibold text-brand-600 dark:text-brand-400">Services</h2>
           <p class="mt-2 text-4xl font-semibold tracking-tight text-pretty text-ink-900 sm:text-5xl">
             How we can help
           </p>
         </div>
-        <a href="/services/" class="text-sm/6 font-semibold text-brand-700">All services <span aria-hidden="true">→</span></a>
+        <a href="/services/" class="text-sm/6 font-semibold text-brand-700 dark:text-brand-300">All services <span aria-hidden="true">→</span></a>
       </div>
       <div class="mt-16 grid grid-cols-1 gap-6 sm:grid-cols-2">
         {services.map((service) => <ServiceCard service={service} />)}
@@ -132,12 +132,12 @@ const dateFormat = new Intl.DateTimeFormat("en-GB", { month: "short", year: "num
         <div class="mx-auto max-w-7xl px-6 lg:px-8">
           <div class="flex flex-wrap items-end justify-between gap-6">
             <div class="max-w-2xl">
-              <h2 class="text-base/7 font-semibold text-brand-600">Our work</h2>
+              <h2 class="text-base/7 font-semibold text-brand-600 dark:text-brand-400">Our work</h2>
               <p class="mt-2 text-4xl font-semibold tracking-tight text-pretty text-ink-900 sm:text-5xl">
                 Recent projects
               </p>
             </div>
-            <a href="/work/" class="text-sm/6 font-semibold text-brand-700">
+            <a href="/work/" class="text-sm/6 font-semibold text-brand-700 dark:text-brand-300">
               All case studies <span aria-hidden="true">→</span>
             </a>
           </div>
@@ -156,12 +156,12 @@ const dateFormat = new Intl.DateTimeFormat("en-GB", { month: "short", year: "num
     <div class="mx-auto max-w-7xl px-6 lg:px-8">
       <div class="flex flex-wrap items-end justify-between gap-6">
         <div class="max-w-2xl">
-          <h2 class="text-base/7 font-semibold text-brand-600">From the blog</h2>
+          <h2 class="text-base/7 font-semibold text-brand-600 dark:text-brand-400">From the blog</h2>
           <p class="mt-2 text-4xl font-semibold tracking-tight text-pretty text-ink-900 sm:text-5xl">
             We write about what we build
           </p>
         </div>
-        <a href={site.blog} class="text-sm/6 font-semibold text-brand-700">Read the blog <span aria-hidden="true">→</span></a>
+        <a href={site.blog} class="text-sm/6 font-semibold text-brand-700 dark:text-brand-300">Read the blog <span aria-hidden="true">→</span></a>
       </div>
       <div class="mt-16 grid grid-cols-1 gap-8 lg:grid-cols-3">
         {
@@ -170,7 +170,7 @@ const dateFormat = new Intl.DateTimeFormat("en-GB", { month: "short", year: "num
               <time datetime={post.date} class="text-sm/6 text-ink-500">
                 {dateFormat.format(new Date(post.date))}
               </time>
-              <h3 class="mt-2 text-lg/7 font-semibold text-ink-900 group-hover:text-brand-700">
+              <h3 class="mt-2 text-lg/7 font-semibold text-ink-900 group-hover:text-brand-700 dark:group-hover:text-brand-300">
                 <a href={post.href}>
                   <span class="absolute inset-0" />
                   {post.title}
