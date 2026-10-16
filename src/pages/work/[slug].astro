@@ -1,0 +1,47 @@
+---
+import type { GetStaticPaths } from "astro";
+import { render } from "astro:content";
+import Base from "../../layouts/Base.astro";
+import PageHeader from "../../components/PageHeader.astro";
+import { getCaseStudies } from "../../lib/content";
+
+export const getStaticPaths = (async () => {
+  const studies = await getCaseStudies();
+  return studies.map((study) => ({ params: { slug: study.id }, props: { study } }));
+}) satisfies GetStaticPaths;
+
+const { study } = Astro.props;
+const { Content } = await render(study);
+---
+
+<Base title={`Case study: ${study.data.client}`} description={study.data.summary}>
+  <PageHeader eyebrow={`Case study · ${study.data.sector}`} title={study.data.title} lead={study.data.summary} />
+
+  <section class="py-20 sm:py-24">
+    <div class="mx-auto grid max-w-7xl grid-cols-1 gap-16 px-6 lg:grid-cols-12 lg:px-8">
+      <aside class="space-y-8 lg:order-last lg:col-span-4">
+        <div class="rounded-2xl bg-brand-950 p-8 text-white">
+          <h2 class="text-sm/6 font-semibold text-accent-400">Results</h2>
+          <ul role="list" class="mt-4 space-y-4">
+            {study.data.results.map((r) => <li class="text-base/7 font-medium">{r}</li>)}
+          </ul>
+        </div>
+        <dl class="space-y-6 rounded-2xl bg-white p-8 ring-1 ring-ink-200 text-sm/6">
+          <div>
+            <dt class="font-semibold text-ink-900">Client</dt>
+            <dd class="mt-1 text-ink-600">{study.data.client}</dd>
+          </div>
+          <div>
+            <dt class="font-semibold text-ink-900">Services</dt>
+            <dd class="mt-1 text-ink-600">{study.data.services.join(", ")}</dd>
+          </div>
+        </dl>
+      </aside>
+      <div
+        class="prose prose-lg max-w-none lg:col-span-8 prose-headings:font-semibold prose-headings:tracking-tight prose-a:text-brand-700"
+      >
+        <Content />
+      </div>
+    </div>
+  </section>
+</Base>

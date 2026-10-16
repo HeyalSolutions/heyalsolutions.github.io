@@ -1,0 +1,118 @@
+---
+import Logo from "./Logo.astro";
+import { nav } from "../data/site";
+import { getCaseStudies } from "../lib/content";
+
+const hasWork = (await getCaseStudies()).length > 0;
+const links = nav.filter((link) => link.href !== "/work/" || hasWork);
+const path = Astro.url.pathname;
+const isActive = (href: string) => !href.startsWith("http") && path.startsWith(href);
+const externalAttrs = { target: "_blank", rel: "noopener" };
+---
+
+<header class="sticky top-0 z-40 border-b border-ink-900/5 bg-ink-50/80 backdrop-blur">
+  <nav class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8" aria-label="Global">
+    <div class="flex lg:flex-1">
+      <Logo />
+    </div>
+    <div class="flex lg:hidden">
+      <button
+        type="button"
+        id="menu-open"
+        class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-ink-700"
+        aria-controls="mobile-menu"
+        aria-expanded="false"
+      >
+        <span class="sr-only">Open main menu</span>
+        <svg class="size-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"></path>
+        </svg>
+      </button>
+    </div>
+    <div class="hidden lg:flex lg:gap-x-10">
+      {
+        links.map((link) => (
+          <a
+            href={link.href}
+            aria-current={isActive(link.href) ? "page" : undefined}
+            class:list={[
+              "text-sm/6 font-semibold hover:text-brand-700",
+              isActive(link.href) ? "text-brand-700" : "text-ink-900",
+            ]}
+            {...(link.external ? externalAttrs : {})}
+          >
+            {link.label}
+          </a>
+        ))
+      }
+    </div>
+    <div class="hidden lg:flex lg:flex-1 lg:justify-end">
+      <a
+        href="/contact/"
+        class="rounded-full bg-brand-700 px-4 py-2 text-sm font-semibold text-white hover:bg-brand-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-700"
+      >
+        Get in touch
+      </a>
+    </div>
+  </nav>
+
+  <div id="mobile-menu" class="hidden lg:hidden" role="dialog" aria-modal="true">
+    <div class="fixed inset-0 z-50 bg-ink-900/20" data-menu-close></div>
+    <div
+      class="fixed inset-y-0 right-0 z-50 h-dvh w-full overflow-y-auto bg-ink-50 px-6 py-4 sm:max-w-sm sm:ring-1 sm:ring-ink-900/10"
+    >
+      <div class="flex items-center justify-between">
+        <Logo />
+        <button type="button" class="-m-2.5 rounded-md p-2.5 text-ink-700" data-menu-close>
+          <span class="sr-only">Close menu</span>
+          <svg class="size-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+      </div>
+      <div class="mt-6 flow-root">
+        <div class="-my-6 divide-y divide-ink-500/10">
+          <div class="space-y-2 py-6">
+            {
+              links.map((link) => (
+                <a
+                  href={link.href}
+                  class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-ink-900 hover:bg-ink-100"
+                  {...(link.external ? externalAttrs : {})}
+                >
+                  {link.label}
+                </a>
+              ))
+            }
+          </div>
+          <div class="py-6">
+            <a
+              href="/contact/"
+              class="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-brand-700 hover:bg-ink-100"
+            >
+              Get in touch
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<script>
+  const menu = document.getElementById("mobile-menu");
+  const openButton = document.getElementById("menu-open");
+
+  function setOpen(open: boolean): void {
+    menu?.classList.toggle("hidden", !open);
+    openButton?.setAttribute("aria-expanded", String(open));
+  }
+
+  openButton?.addEventListener("click", () => setOpen(true));
+  menu?.querySelectorAll<HTMLElement>("[data-menu-close]").forEach((el) => {
+    el.addEventListener("click", () => setOpen(false));
+  });
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") setOpen(false);
+  });
+</script>

@@ -1,0 +1,69 @@
+---
+import Logo from "./Logo.astro";
+import { site } from "../data/site";
+import { getServices } from "../lib/content";
+
+const services = await getServices();
+const year = new Date().getFullYear();
+
+const columns: { heading: string; links: { label: string; href: string }[] }[] = [
+  {
+    heading: "Services",
+    links: services.map((s) => ({ label: s.data.title, href: `/services/${s.id}/` })),
+  },
+  {
+    heading: "Company",
+    links: [
+      { label: "How we work", href: "/how-we-work/" },
+      { label: "About", href: "/about/" },
+      { label: "Contact", href: "/contact/" },
+      { label: "Blog", href: site.blog },
+    ],
+  },
+  {
+    heading: "Elsewhere",
+    links: [
+      { label: "LinkedIn", href: site.linkedin },
+      { label: "GitHub", href: site.github },
+    ],
+  },
+];
+---
+
+<footer class="border-t border-ink-200 bg-ink-50">
+  <div class="mx-auto max-w-7xl px-6 pt-16 pb-10 lg:px-8">
+    <div class="grid gap-12 lg:grid-cols-5">
+      <div class="lg:col-span-2">
+        <Logo />
+        <p class="mt-4 max-w-xs text-sm/6 text-ink-600">
+          Cloud native platform consultancy. Kubernetes, infrastructure as code and delivery pipelines.
+        </p>
+        <a href={`mailto:${site.email}`} class="mt-4 inline-block text-sm/6 font-semibold text-brand-700 hover:text-brand-600"
+          >{site.email}</a
+        >
+      </div>
+      {
+        columns.map((col) => (
+          <div>
+            <h3 class="text-sm/6 font-semibold text-ink-900">{col.heading}</h3>
+            <ul role="list" class="mt-4 space-y-3">
+              {col.links.map((link) => (
+                <li>
+                  <a href={link.href} class="text-sm/6 text-ink-600 hover:text-ink-900">
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))
+      }
+    </div>
+    <p class="mt-16 border-t border-ink-200 pt-8 text-xs/5 text-ink-500">
+      &copy; {year}
+      {site.legalName}. Registered in England &amp; Wales, company number {site.companyNumber}. Registered address: {
+        site.registeredAddress
+      }.
+    </p>
+  </div>
+</footer>

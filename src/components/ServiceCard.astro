@@ -1,0 +1,24 @@
+---
+import type { CollectionEntry } from "astro:content";
+import Icon from "./Icon.astro";
+
+interface Props {
+  service: CollectionEntry<"services">;
+}
+
+const { service } = Astro.props;
+---
+
+<a
+  href={`/services/${service.id}/`}
+  class="group flex flex-col rounded-2xl bg-white p-8 ring-1 ring-ink-200 transition hover:-translate-y-0.5 hover:ring-brand-300 hover:shadow-lg hover:shadow-brand-900/5"
+>
+  <span class="flex size-11 items-center justify-center rounded-full bg-brand-100 text-brand-700 ring-1 ring-brand-200">
+    <Icon name={service.data.icon} class="size-6" />
+  </span>
+  <h3 class="mt-6 text-lg/7 font-semibold text-ink-900">{service.data.title}</h3>
+  <p class="mt-2 flex-auto text-base/7 text-ink-600">{service.data.summary}</p>
+  <p class="mt-6 text-sm/6 font-semibold text-brand-700">
+    Learn more <span aria-hidden="true" class="inline-block transition group-hover:translate-x-0.5">→</span>
+  </p>
+</a>

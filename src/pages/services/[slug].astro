@@ -1,0 +1,93 @@
+---
+import type { GetStaticPaths } from "astro";
+import { render } from "astro:content";
+import Base from "../../layouts/Base.astro";
+import PageHeader from "../../components/PageHeader.astro";
+import { getServices } from "../../lib/content";
+
+export const getStaticPaths = (async () => {
+  const services = await getServices();
+  return services.map((service) => ({
+    params: { slug: service.id },
+    props: { service, others: services.filter((s) => s.id !== service.id) },
+  }));
+}) satisfies GetStaticPaths;
+
+const { service, others } = Astro.props;
+const { Content } = await render(service);
+---
+
+<Base title={service.data.title} description={service.data.summary}>
+  <PageHeader eyebrow="Services" title={service.data.title} lead={service.data.summary}>
+    <ul role="list" class="mt-8 flex flex-wrap gap-2">
+      {
+        service.data.tools.map((tool) => (
+          <li class="rounded-full bg-white px-3 py-1 text-sm/6 text-ink-700 ring-1 ring-ink-200">{tool}</li>
+        ))
+      }
+    </ul>
+  </PageHeader>
+
+  <section class="py-20 sm:py-24">
+    <div class="mx-auto grid max-w-7xl grid-cols-1 gap-16 px-6 lg:grid-cols-12 lg:px-8">
+      <div
+        class="prose prose-lg max-w-none lg:col-span-7 prose-headings:font-semibold prose-headings:tracking-tight prose-a:text-brand-700"
+      >
+        <Content />
+      </div>
+
+      <aside class="space-y-8 lg:col-span-5">
+        <div class="rounded-2xl bg-white p-8 ring-1 ring-ink-200">
+          <h2 class="text-base/7 font-semibold text-ink-900">What you get</h2>
+          <ul role="list" class="mt-6 space-y-4">
+            {
+              service.data.outcomes.map((outcome) => (
+                <li class="flex gap-x-3 text-base/7 text-ink-700">
+                  <svg class="mt-1 size-5 flex-none text-brand-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                    <path
+                      fill-rule="evenodd"
+                      d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z"
+                      clip-rule="evenodd"
+                    />
+                  </svg>
+                  {outcome}
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+        <div class="rounded-2xl bg-ink-100 p-8">
+          <h2 class="text-base/7 font-semibold text-ink-900">Typically includes</h2>
+          <ul role="list" class="mt-6 space-y-3">
+            {
+              service.data.includes.map((item) => (
+                <li class="border-l-2 border-accent-400 pl-4 text-sm/6 text-ink-700">{item}</li>
+              ))
+            }
+          </ul>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <section class="border-t border-ink-200 py-20 sm:py-24">
+    <div class="mx-auto max-w-7xl px-6 lg:px-8">
+      <h2 class="text-2xl font-semibold tracking-tight text-ink-900">Other services</h2>
+      <ul role="list" class="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-3">
+        {
+          others.map((s) => (
+            <li>
+              <a
+                href={`/services/${s.id}/`}
+                class="block h-full rounded-xl p-6 ring-1 ring-ink-200 hover:bg-white hover:ring-brand-300"
+              >
+                <span class="text-base/7 font-semibold text-ink-900">{s.data.title}</span>
+                <span class="mt-1 block text-sm/6 text-ink-600">{s.data.summary}</span>
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+</Base>

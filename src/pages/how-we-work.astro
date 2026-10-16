@@ -1,0 +1,106 @@
+---
+import Base from "../layouts/Base.astro";
+import PageHeader from "../components/PageHeader.astro";
+import Icon from "../components/Icon.astro";
+import { engagements, principles, process, site } from "../data/site";
+---
+
+<Base title="How we work" description="Time & materials, fixed-scope and advisory engagements, delivered by senior engineers in collaboration with your team.">
+  <PageHeader
+    eyebrow="How we work"
+    title="Experienced engineers, working with your team"
+    lead="We're not the kind of consultancy that drops a slide deck and leaves. We deliver working platform improvements in your repositories, collaborating closely with your engineers, then hand everything over so your team owns it."
+  />
+
+  <!-- Engagement models -->
+  <section class="py-24 sm:py-32">
+    <div class="mx-auto max-w-7xl px-6 lg:px-8">
+      <div class="max-w-2xl">
+        <h2 class="text-base/7 font-semibold text-brand-600">Ways to engage</h2>
+        <p class="mt-2 text-3xl font-semibold tracking-tight text-pretty text-ink-900 sm:text-4xl">
+          Pick the shape that fits the work
+        </p>
+      </div>
+      <div class="mt-16 grid grid-cols-1 gap-6 lg:grid-cols-3">
+        {
+          engagements.map((e) => (
+            <div class="flex flex-col rounded-2xl bg-white p-8 ring-1 ring-ink-200">
+              <h3 class="text-xl/8 font-semibold text-ink-900">{e.title}</h3>
+              <p class="mt-2 text-base/7 text-ink-700">{e.summary}</p>
+              <ul role="list" class="mt-6 flex-auto space-y-3">
+                {e.points.map((point) => (
+                  <li class="border-l-2 border-accent-400 pl-4 text-sm/6 text-ink-600">{point}</li>
+                ))}
+              </ul>
+              <p class="mt-8 border-t border-ink-200 pt-6 text-sm/6 text-ink-600">
+                <span class="font-semibold text-ink-900">Best for: </span>
+                {e.bestFor}
+              </p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Process -->
+  <section class="border-y border-ink-200 bg-white py-24 sm:py-32">
+    <div class="mx-auto max-w-7xl px-6 lg:px-8">
+      <div class="max-w-2xl">
+        <h2 class="text-base/7 font-semibold text-brand-600">The process</h2>
+        <p class="mt-2 text-3xl font-semibold tracking-tight text-pretty text-ink-900 sm:text-4xl">
+          From first call to handover
+        </p>
+      </div>
+      <ol class="mt-16 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
+        {
+          process.map((item) => (
+            <li class="border-t-2 border-brand-600 pt-6">
+              <p class="font-mono text-sm font-semibold text-accent-500">{item.step}</p>
+              <h3 class="mt-2 text-lg/8 font-semibold text-ink-900">{item.title}</h3>
+              <p class="mt-2 text-base/7 text-ink-600">{item.body}</p>
+            </li>
+          ))
+        }
+      </ol>
+    </div>
+  </section>
+
+  <!-- Principles + team model -->
+  <section class="py-24 sm:py-32">
+    <div class="mx-auto grid max-w-7xl grid-cols-1 gap-16 px-6 lg:grid-cols-2 lg:px-8">
+      <div>
+        <h2 class="text-base/7 font-semibold text-brand-600">Who you'll work with</h2>
+        <p class="mt-2 text-3xl font-semibold tracking-tight text-pretty text-ink-900 sm:text-4xl">
+          A founder-led team, sized to the job
+        </p>
+        <div class="mt-6 space-y-6 text-lg/8 text-ink-600">
+          <p>
+            Every engagement is overseen by {site.founder}, our founder, and delivered by the senior engineers best suited
+            to the work. When a project needs more capacity or specialist experience, we draw on a small network of associates
+            we've worked with and trust.
+          </p>
+          <p>
+            Whoever works on your project, you get the same standards, the same methods and the same quality of handover.
+            No juniors learning on your platform.
+          </p>
+        </div>
+      </div>
+      <dl class="space-y-10">
+        {
+          principles.map((item) => (
+            <div class="relative pl-14">
+              <dt class="text-base/7 font-semibold text-ink-900">
+                <span class="absolute top-0 left-0 flex size-10 items-center justify-center rounded-full bg-brand-100 text-brand-700 ring-1 ring-brand-200">
+                  <Icon name={item.icon} class="size-5" />
+                </span>
+                {item.title}
+              </dt>
+              <dd class="mt-1 text-base/7 text-ink-600">{item.body}</dd>
+            </div>
+          ))
+        }
+      </dl>
+    </div>
+  </section>
+</Base>
