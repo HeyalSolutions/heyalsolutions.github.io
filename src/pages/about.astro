@@ -37,18 +37,18 @@ const focus = [
           <p>
             He writes about Kubernetes, GitOps, Helm and serverless on the <a
               href={site.blog}
-              class="font-semibold text-brand-700 hover:text-brand-600">Heyal blog</a
+              class="font-semibold text-brand-700 dark:text-brand-300 hover:text-brand-600 dark:hover:text-brand-200">Heyal blog</a
             >.
           </p>
         </div>
         <div class="mt-10 flex flex-wrap gap-x-6 gap-y-3 text-sm/6 font-semibold">
-          <a href={site.linkedin} class="text-brand-700 hover:text-brand-600">LinkedIn <span aria-hidden="true">→</span></a>
-          <a href={site.github} class="text-brand-700 hover:text-brand-600">GitHub <span aria-hidden="true">→</span></a>
-          <a href={site.blog} class="text-brand-700 hover:text-brand-600">Blog <span aria-hidden="true">→</span></a>
+          <a href={site.linkedin} class="text-brand-700 dark:text-brand-300 hover:text-brand-600 dark:hover:text-brand-200">LinkedIn <span aria-hidden="true">→</span></a>
+          <a href={site.github} class="text-brand-700 dark:text-brand-300 hover:text-brand-600 dark:hover:text-brand-200">GitHub <span aria-hidden="true">→</span></a>
+          <a href={site.blog} class="text-brand-700 dark:text-brand-300 hover:text-brand-600 dark:hover:text-brand-200">Blog <span aria-hidden="true">→</span></a>
         </div>
       </div>
       <aside class="lg:col-span-5">
-        <div class="rounded-2xl bg-white p-8 ring-1 ring-ink-200">
+        <div class="rounded-2xl bg-surface p-8 ring-1 ring-ink-200">
           <h2 class="text-base/7 font-semibold text-ink-900">Focus areas</h2>
           <ul role="list" class="mt-6 space-y-3">
             {focus.map((item) => <li class="border-l-2 border-accent-400 pl-4 text-base/7 text-ink-700">{item}</li>)}

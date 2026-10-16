@@ -1,5 +1,6 @@
 ---
 import Logo from "./Logo.astro";
+import ThemeToggle from "./ThemeToggle.astro";
 import { nav } from "../data/site";
 import { getCaseStudies } from "../lib/content";
 
@@ -15,7 +16,8 @@ const externalAttrs = { target: "_blank", rel: "noopener" };
     <div class="flex lg:flex-1">
       <Logo />
     </div>
-    <div class="flex lg:hidden">
+    <div class="flex items-center gap-x-4 lg:hidden">
+      <ThemeToggle />
       <button
         type="button"
         id="menu-open"
@@ -36,8 +38,8 @@ const externalAttrs = { target: "_blank", rel: "noopener" };
             href={link.href}
             aria-current={isActive(link.href) ? "page" : undefined}
             class:list={[
-              "text-sm/6 font-semibold hover:text-brand-700",
-              isActive(link.href) ? "text-brand-700" : "text-ink-900",
+              "text-sm/6 font-semibold hover:text-brand-700 dark:hover:text-brand-300",
+              isActive(link.href) ? "text-brand-700 dark:text-brand-300" : "text-ink-900",
             ]}
             {...(link.external ? externalAttrs : {})}
           >
@@ -46,7 +48,8 @@ const externalAttrs = { target: "_blank", rel: "noopener" };
         ))
       }
     </div>
-    <div class="hidden lg:flex lg:flex-1 lg:justify-end">
+    <div class="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:gap-x-4">
+      <ThemeToggle />
       <a
         href="/contact/"
         class="rounded-full bg-brand-700 px-4 py-2 text-sm font-semibold text-white hover:bg-brand-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-700"
@@ -57,7 +60,7 @@ const externalAttrs = { target: "_blank", rel: "noopener" };
   </nav>
 
   <div id="mobile-menu" class="hidden lg:hidden" role="dialog" aria-modal="true">
-    <div class="fixed inset-0 z-50 bg-ink-900/20" data-menu-close></div>
+    <div class="fixed inset-0 z-50 bg-black/40" data-menu-close></div>
     <div
       class="fixed inset-y-0 right-0 z-50 h-dvh w-full overflow-y-auto bg-ink-50 px-6 py-4 sm:max-w-sm sm:ring-1 sm:ring-ink-900/10"
     >
@@ -88,7 +91,7 @@ const externalAttrs = { target: "_blank", rel: "noopener" };
           <div class="py-6">
             <a
               href="/contact/"
-              class="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-brand-700 hover:bg-ink-100"
+              class="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-brand-700 dark:text-brand-300 hover:bg-ink-100"
             >
               Get in touch
             </a>

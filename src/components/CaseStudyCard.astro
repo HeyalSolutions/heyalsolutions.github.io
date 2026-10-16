@@ -10,7 +10,7 @@ const { study } = Astro.props;
 
 <a
   href={`/work/${study.id}/`}
-  class="group flex flex-col rounded-2xl bg-white p-8 ring-1 ring-ink-200 transition hover:ring-brand-300"
+  class="group flex flex-col rounded-2xl bg-surface p-8 ring-1 ring-ink-200 transition hover:ring-brand-300 dark:hover:ring-brand-700"
 >
   <p class="flex items-center gap-x-3 text-sm/6 text-ink-500">
     <span>{study.data.sector}</span>
@@ -18,7 +18,7 @@ const { study } = Astro.props;
   </p>
   <h3 class="mt-3 text-xl/8 font-semibold text-ink-900">{study.data.client}</h3>
   <p class="mt-2 flex-auto text-base/7 text-ink-600">{study.data.summary}</p>
-  <p class="mt-6 text-sm/6 font-semibold text-brand-700">
+  <p class="mt-6 text-sm/6 font-semibold text-brand-700 dark:text-brand-300">
     Read the case study <span aria-hidden="true" class="inline-block transition group-hover:translate-x-0.5">→</span>
   </p>
 </a>

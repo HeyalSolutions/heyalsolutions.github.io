@@ -23,18 +23,18 @@ const helpful = [
         <h2 class="text-base/7 font-semibold text-ink-900">Email us</h2>
         <a
           href={`mailto:${site.email}?subject=${encodeURIComponent("Platform enquiry")}`}
-          class="mt-4 inline-block text-3xl font-semibold tracking-tight break-all text-brand-700 hover:text-brand-600 sm:text-4xl"
+          class="mt-4 inline-block text-3xl font-semibold tracking-tight break-all text-brand-700 dark:text-brand-300 hover:text-brand-600 dark:hover:text-brand-200 sm:text-4xl"
         >
           {site.email}
         </a>
         <p class="mt-8 text-base/7 text-ink-600">
           Prefer to connect first? Find {site.founder} on <a
             href={site.linkedin}
-            class="font-semibold text-brand-700 hover:text-brand-600">LinkedIn</a
+            class="font-semibold text-brand-700 dark:text-brand-300 hover:text-brand-600 dark:hover:text-brand-200">LinkedIn</a
           >.
         </p>
       </div>
-      <div class="rounded-2xl bg-white p-8 ring-1 ring-ink-200">
+      <div class="rounded-2xl bg-surface p-8 ring-1 ring-ink-200">
         <h2 class="text-base/7 font-semibold text-ink-900">Helpful to include</h2>
         <ul role="list" class="mt-6 space-y-4">
           {helpful.map((item) => <li class="border-l-2 border-accent-400 pl-4 text-base/7 text-ink-700">{item}</li>)}

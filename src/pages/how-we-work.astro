@@ -16,7 +16,7 @@ import { engagements, principles, process, site } from "../data/site";
   <section class="py-24 sm:py-32">
     <div class="mx-auto max-w-7xl px-6 lg:px-8">
       <div class="max-w-2xl">
-        <h2 class="text-base/7 font-semibold text-brand-600">Ways to engage</h2>
+        <h2 class="text-base/7 font-semibold text-brand-600 dark:text-brand-400">Ways to engage</h2>
         <p class="mt-2 text-3xl font-semibold tracking-tight text-pretty text-ink-900 sm:text-4xl">
           Pick the shape that fits the work
         </p>
@@ -24,7 +24,7 @@ import { engagements, principles, process, site } from "../data/site";
       <div class="mt-16 grid grid-cols-1 gap-6 lg:grid-cols-3">
         {
           engagements.map((e) => (
-            <div class="flex flex-col rounded-2xl bg-white p-8 ring-1 ring-ink-200">
+            <div class="flex flex-col rounded-2xl bg-surface p-8 ring-1 ring-ink-200">
               <h3 class="text-xl/8 font-semibold text-ink-900">{e.title}</h3>
               <p class="mt-2 text-base/7 text-ink-700">{e.summary}</p>
               <ul role="list" class="mt-6 flex-auto space-y-3">
@@ -44,10 +44,10 @@ import { engagements, principles, process, site } from "../data/site";
   </section>
 
   <!-- Process -->
-  <section class="border-y border-ink-200 bg-white py-24 sm:py-32">
+  <section class="border-y border-ink-200 bg-surface py-24 sm:py-32">
     <div class="mx-auto max-w-7xl px-6 lg:px-8">
       <div class="max-w-2xl">
-        <h2 class="text-base/7 font-semibold text-brand-600">The process</h2>
+        <h2 class="text-base/7 font-semibold text-brand-600 dark:text-brand-400">The process</h2>
         <p class="mt-2 text-3xl font-semibold tracking-tight text-pretty text-ink-900 sm:text-4xl">
           From first call to handover
         </p>
@@ -70,7 +70,7 @@ import { engagements, principles, process, site } from "../data/site";
   <section class="py-24 sm:py-32">
     <div class="mx-auto grid max-w-7xl grid-cols-1 gap-16 px-6 lg:grid-cols-2 lg:px-8">
       <div>
-        <h2 class="text-base/7 font-semibold text-brand-600">Who you'll work with</h2>
+        <h2 class="text-base/7 font-semibold text-brand-600 dark:text-brand-400">Who you'll work with</h2>
         <p class="mt-2 text-3xl font-semibold tracking-tight text-pretty text-ink-900 sm:text-4xl">
           A founder-led team, sized to the job
         </p>
@@ -91,7 +91,7 @@ import { engagements, principles, process, site } from "../data/site";
           principles.map((item) => (
             <div class="relative pl-14">
               <dt class="text-base/7 font-semibold text-ink-900">
-                <span class="absolute top-0 left-0 flex size-10 items-center justify-center rounded-full bg-brand-100 text-brand-700 ring-1 ring-brand-200">
+                <span class="absolute top-0 left-0 flex size-10 items-center justify-center rounded-full bg-brand-100 dark:bg-brand-900/60 text-brand-700 dark:text-brand-300 ring-1 ring-brand-200 dark:ring-brand-800">
                   <Icon name={item.icon} class="size-5" />
                 </span>
                 {item.title}
