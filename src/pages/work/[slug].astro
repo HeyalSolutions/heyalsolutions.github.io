@@ -1,6 +1,6 @@
 ---
 import type { GetStaticPaths } from "astro";
-import { render } from "astro:content";
+import { getEntries, render } from "astro:content";
 import Base from "../../layouts/Base.astro";
 import PageHeader from "../../components/PageHeader.astro";
 import { getCaseStudies } from "../../lib/content";
@@ -12,10 +12,27 @@ export const getStaticPaths = (async () => {
 
 const { study } = Astro.props;
 const { Content } = await render(study);
+const services = await getEntries(study.data.services);
+
+const details = [
+  { label: "Client", value: study.data.client },
+  { label: "Duration", value: study.data.duration },
+  { label: "Team", value: study.data.team },
+].filter((d): d is { label: string; value: string } => Boolean(d.value));
 ---
 
-<Base title={`Case study: ${study.data.client}`} description={study.data.summary}>
-  <PageHeader eyebrow={`Case study · ${study.data.sector}`} title={study.data.title} lead={study.data.summary} />
+<Base title={study.data.title} description={study.data.summary}>
+  <PageHeader eyebrow={`Case study · ${study.data.sector}`} title={study.data.title} lead={study.data.summary}>
+    {
+      study.data.stack.length > 0 && (
+        <ul role="list" class="mt-8 flex flex-wrap gap-2">
+          {study.data.stack.map((tool) => (
+            <li class="rounded-full bg-white px-3 py-1 text-sm/6 text-ink-700 ring-1 ring-ink-200">{tool}</li>
+          ))}
+        </ul>
+      )
+    }
+  </PageHeader>
 
   <section class="py-20 sm:py-24">
     <div class="mx-auto grid max-w-7xl grid-cols-1 gap-16 px-6 lg:grid-cols-12 lg:px-8">
@@ -27,13 +44,29 @@ const { Content } = await render(study);
           </ul>
         </div>
         <dl class="space-y-6 rounded-2xl bg-white p-8 ring-1 ring-ink-200 text-sm/6">
-          <div>
-            <dt class="font-semibold text-ink-900">Client</dt>
-            <dd class="mt-1 text-ink-600">{study.data.client}</dd>
-          </div>
+          {
+            details.map((d) => (
+              <div>
+                <dt class="font-semibold text-ink-900">{d.label}</dt>
+                <dd class="mt-1 text-ink-600">{d.value}</dd>
+              </div>
+            ))
+          }
           <div>
             <dt class="font-semibold text-ink-900">Services</dt>
-            <dd class="mt-1 text-ink-600">{study.data.services.join(", ")}</dd>
+            <dd class="mt-1">
+              <ul role="list" class="space-y-1">
+                {
+                  services.map((s) => (
+                    <li>
+                      <a href={`/services/${s.id}/`} class="font-medium text-brand-700 hover:text-brand-600">
+                        {s.data.title}
+                      </a>
+                    </li>
+                  ))
+                }
+              </ul>
+            </dd>
           </div>
         </dl>
       </aside>
