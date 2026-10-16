@@ -1,13 +1,19 @@
-# Creative Theme for Jekyll
+# heyal.co.uk
 
-A Jekyll implementation of the [Creative Theme](http://startbootstrap.com/template-overviews/creative/) template by [Start Bootstrap](http://startbootstrap.com).
+Company site for Heyal Solutions Ltd, built with [Astro](https://astro.build), TypeScript and Tailwind CSS v4.
 
-Creative is a one page Bootstrap theme for creatives, small businesses, and other multipurpose uses.
-The theme includes a number of rich features and plugins that you can use as a great boilerplate for your next Jekyll project! 
+```bash
+npm install
+npm run dev      # http://localhost:4321
+npm run build    # type-check + static build to dist/
+```
 
-See it live in action at <https://volny.github.io/creative-theme-jekyll/>
+## Editing content
 
-## To use the Creative Theme template in your project
+- `src/content/services/*.md`: one file per service page (frontmatter + body)
+- `src/content/work/*.md`: case studies. `draft: true` shows them in `npm run dev` only.
+  The Work nav link and home page section appear once at least one is published.
+- `src/data/site.ts`: company details, nav, home page copy, engagement models, blog posts
 
-- Start by adding your info in `_config.yml`
-- In `_layouts/front.html` reorder or remove section as you prefer.
+Pushes to `master` deploy via GitHub Actions (`.github/workflows/deploy.yml`).
+In repo Settings → Pages, set **Source** to **GitHub Actions**.

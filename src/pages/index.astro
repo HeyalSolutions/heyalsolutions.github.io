@@ -1,0 +1,186 @@
+---
+import Base from "../layouts/Base.astro";
+import Icon from "../components/Icon.astro";
+import ServiceCard from "../components/ServiceCard.astro";
+import CaseStudyCard from "../components/CaseStudyCard.astro";
+import { posts, principles, problems, site } from "../data/site";
+import { getCaseStudies, getServices } from "../lib/content";
+
+const services = await getServices();
+const caseStudies = (await getCaseStudies()).slice(0, 2);
+const dateFormat = new Intl.DateTimeFormat("en-GB", { month: "short", year: "numeric" });
+---
+
+<Base>
+  <!-- Hero -->
+  <section class="relative isolate overflow-hidden">
+    <div class="absolute inset-0 -z-10" aria-hidden="true">
+      <div
+        class="absolute inset-0 bg-[linear-gradient(to_right,var(--color-ink-200)_1px,transparent_1px),linear-gradient(to_bottom,var(--color-ink-200)_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_70%_60%_at_50%_40%,#000_40%,transparent_100%)]"
+      >
+      </div>
+      <div class="absolute top-10 left-1/2 size-[36rem] -translate-x-[70%] rounded-full bg-brand-300/30 blur-3xl"></div>
+      <div class="absolute top-36 left-1/2 size-[28rem] translate-x-[5%] rounded-full bg-accent-300/30 blur-3xl"></div>
+    </div>
+    <div class="mx-auto max-w-4xl px-6 py-28 text-center sm:py-40 lg:px-8">
+      <p
+        class="inline-flex rounded-full bg-white/60 px-3 py-1 text-sm/6 font-medium text-ink-600 ring-1 ring-ink-900/10 backdrop-blur"
+      >
+        Cloud native platform consultancy
+      </p>
+      <h1 class="mt-8 text-5xl font-semibold tracking-tight text-balance text-ink-900 sm:text-7xl">
+        Make shipping software boring
+      </h1>
+      <p class="mx-auto mt-8 max-w-2xl text-lg font-medium text-pretty text-ink-600 sm:text-xl/8">
+        We design, build and fix the platforms your engineers ship on, covering Kubernetes, infrastructure as code and
+        delivery pipelines. Senior, hands-on help that leaves your team in charge.
+      </p>
+      <div class="mt-10 flex flex-wrap items-center justify-center gap-x-6 gap-y-4">
+        <a
+          href="/contact/"
+          class="rounded-full bg-brand-700 px-5 py-2.5 text-sm font-semibold text-white shadow-xs hover:bg-brand-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-700"
+        >
+          Talk to us
+        </a>
+        <a href="/services/" class="text-sm/6 font-semibold text-ink-900">
+          See what we do <span aria-hidden="true">→</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Problems -->
+  <section class="border-y border-ink-200 bg-white py-24 sm:py-32">
+    <div class="mx-auto max-w-7xl px-6 lg:px-8">
+      <div class="max-w-2xl">
+        <h2 class="text-base/7 font-semibold text-brand-600">Sound familiar?</h2>
+        <p class="mt-2 text-4xl font-semibold tracking-tight text-pretty text-ink-900 sm:text-5xl">
+          The platform should speed you up, not hold you back
+        </p>
+      </div>
+      <dl class="mt-16 grid grid-cols-1 gap-x-12 gap-y-10 sm:grid-cols-2">
+        {
+          problems.map((p) => (
+            <div class="border-l-2 border-accent-400 pl-6">
+              <dt class="text-lg/7 font-semibold text-ink-900">{p.title}</dt>
+              <dd class="mt-2 text-base/7 text-ink-600">{p.body}</dd>
+            </div>
+          ))
+        }
+      </dl>
+      <p class="mt-16 max-w-2xl text-lg/8 text-ink-600">
+        These are fixable problems, and none of them needs a big-bang rewrite. Getting teams from here to dependable,
+        self-service delivery is what we do.
+      </p>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section class="py-24 sm:py-32">
+    <div class="mx-auto max-w-7xl px-6 lg:px-8">
+      <div class="flex flex-wrap items-end justify-between gap-6">
+        <div class="max-w-2xl">
+          <h2 class="text-base/7 font-semibold text-brand-600">Services</h2>
+          <p class="mt-2 text-4xl font-semibold tracking-tight text-pretty text-ink-900 sm:text-5xl">
+            How we can help
+          </p>
+        </div>
+        <a href="/services/" class="text-sm/6 font-semibold text-brand-700">All services <span aria-hidden="true">→</span></a>
+      </div>
+      <div class="mt-16 grid grid-cols-1 gap-6 sm:grid-cols-2">
+        {services.map((service) => <ServiceCard service={service} />)}
+      </div>
+    </div>
+  </section>
+
+  <!-- Principles -->
+  <section class="bg-brand-950 py-24 sm:py-32">
+    <div class="mx-auto max-w-7xl px-6 lg:px-8">
+      <div class="max-w-2xl">
+        <h2 class="text-base/7 font-semibold text-accent-400">Why work with us</h2>
+        <p class="mt-2 text-4xl font-semibold tracking-tight text-pretty text-white sm:text-5xl">
+          Small on purpose
+        </p>
+        <p class="mt-6 text-lg/8 text-brand-100/70">
+          {site.name} is led by {site.founder}, a cloud native platform engineer, and works with a small network of trusted
+          senior associates. You get experienced people without the overhead of a big consultancy.
+        </p>
+      </div>
+      <dl class="mt-16 grid grid-cols-1 gap-8 lg:grid-cols-3">
+        {
+          principles.map((item) => (
+            <div class="rounded-2xl bg-white/[0.04] p-8 ring-1 ring-white/10">
+              <dt class="text-base/7 font-semibold text-white">
+                <Icon name={item.icon} class="mb-6 size-7 text-accent-400" />
+                {item.title}
+              </dt>
+              <dd class="mt-2 text-base/7 text-brand-100/70">{item.body}</dd>
+            </div>
+          ))
+        }
+      </dl>
+      <a href="/how-we-work/" class="mt-12 inline-block text-sm/6 font-semibold text-white">
+        How engagements work <span aria-hidden="true">→</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- Case studies (only rendered once at least one is published) -->
+  {
+    caseStudies.length > 0 && (
+      <section class="py-24 sm:py-32">
+        <div class="mx-auto max-w-7xl px-6 lg:px-8">
+          <div class="flex flex-wrap items-end justify-between gap-6">
+            <div class="max-w-2xl">
+              <h2 class="text-base/7 font-semibold text-brand-600">Our work</h2>
+              <p class="mt-2 text-4xl font-semibold tracking-tight text-pretty text-ink-900 sm:text-5xl">
+                Recent projects
+              </p>
+            </div>
+            <a href="/work/" class="text-sm/6 font-semibold text-brand-700">
+              All case studies <span aria-hidden="true">→</span>
+            </a>
+          </div>
+          <div class="mt-16 grid grid-cols-1 gap-6 lg:grid-cols-2">
+            {caseStudies.map((study) => (
+              <CaseStudyCard study={study} />
+            ))}
+          </div>
+        </div>
+      </section>
+    )
+  }
+
+  <!-- Writing -->
+  <section class="border-t border-ink-200 py-24 sm:py-32">
+    <div class="mx-auto max-w-7xl px-6 lg:px-8">
+      <div class="flex flex-wrap items-end justify-between gap-6">
+        <div class="max-w-2xl">
+          <h2 class="text-base/7 font-semibold text-brand-600">From the blog</h2>
+          <p class="mt-2 text-4xl font-semibold tracking-tight text-pretty text-ink-900 sm:text-5xl">
+            We write about what we build
+          </p>
+        </div>
+        <a href={site.blog} class="text-sm/6 font-semibold text-brand-700">Read the blog <span aria-hidden="true">→</span></a>
+      </div>
+      <div class="mt-16 grid grid-cols-1 gap-8 lg:grid-cols-3">
+        {
+          posts.map((post) => (
+            <article class="group relative flex flex-col border-t border-ink-200 pt-6">
+              <time datetime={post.date} class="text-sm/6 text-ink-500">
+                {dateFormat.format(new Date(post.date))}
+              </time>
+              <h3 class="mt-2 text-lg/7 font-semibold text-ink-900 group-hover:text-brand-700">
+                <a href={post.href}>
+                  <span class="absolute inset-0" />
+                  {post.title}
+                </a>
+              </h3>
+              <p class="mt-2 text-base/7 text-ink-600">{post.summary}</p>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+</Base>

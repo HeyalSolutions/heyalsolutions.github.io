@@ -1,0 +1,46 @@
+---
+import Base from "../layouts/Base.astro";
+import PageHeader from "../components/PageHeader.astro";
+import { site } from "../data/site";
+
+const helpful = [
+  "What you're running today, such as cloud provider, Kubernetes, CI/CD and IaC tooling",
+  "What's hurting, and what it's costing the team or the business",
+  "Any deadlines or constraints we should know about",
+  "Whether you have time & materials, fixed-scope or advisory work in mind (or aren't sure yet)",
+];
+---
+
+<Base title="Contact" description={`Get in touch with ${site.name}.`} cta={false}>
+  <PageHeader
+    eyebrow="Contact"
+    title="Let's talk about your platform"
+    lead="Tell us a bit about your team and what you're trying to fix. We'll reply personally, and if we're not the right fit, we'll try to point you to someone who is."
+  />
+  <section class="py-24 sm:py-32">
+    <div class="mx-auto grid max-w-7xl grid-cols-1 gap-16 px-6 lg:grid-cols-2 lg:px-8">
+      <div>
+        <h2 class="text-base/7 font-semibold text-ink-900">Email us</h2>
+        <a
+          href={`mailto:${site.email}?subject=${encodeURIComponent("Platform enquiry")}`}
+          class="mt-4 inline-block text-3xl font-semibold tracking-tight break-all text-brand-700 hover:text-brand-600 sm:text-4xl"
+        >
+          {site.email}
+        </a>
+        <p class="mt-8 text-base/7 text-ink-600">
+          Prefer to connect first? Find {site.founder} on <a
+            href={site.linkedin}
+            class="font-semibold text-brand-700 hover:text-brand-600">LinkedIn</a
+          >.
+        </p>
+      </div>
+      <div class="rounded-2xl bg-white p-8 ring-1 ring-ink-200">
+        <h2 class="text-base/7 font-semibold text-ink-900">Helpful to include</h2>
+        <ul role="list" class="mt-6 space-y-4">
+          {helpful.map((item) => <li class="border-l-2 border-accent-400 pl-4 text-base/7 text-ink-700">{item}</li>)}
+        </ul>
+        <p class="mt-6 text-sm/6 text-ink-500">Don't worry if you can't answer all of these. A couple of lines is plenty to start.</p>
+      </div>
+    </div>
+  </section>
+</Base>

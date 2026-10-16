@@ -1,0 +1,34 @@
+---
+import Base from "../../layouts/Base.astro";
+import PageHeader from "../../components/PageHeader.astro";
+import CaseStudyCard from "../../components/CaseStudyCard.astro";
+import { getCaseStudies } from "../../lib/content";
+
+const studies = await getCaseStudies();
+---
+
+<Base title="Work" description="Anonymised case studies from our platform engineering and cloud native projects.">
+  <PageHeader
+    eyebrow="Work"
+    title="Case studies"
+    lead="Most of our clients prefer not to be named, so these are anonymised. The problems, approach and outcomes are real."
+  />
+  <section class="py-24 sm:py-32">
+    <div class="mx-auto max-w-7xl px-6 lg:px-8">
+      {
+        studies.length > 0 ? (
+          <div class="grid grid-cols-1 gap-6 lg:grid-cols-2">
+            {studies.map((study) => (
+              <CaseStudyCard study={study} />
+            ))}
+          </div>
+        ) : (
+          <p class="text-lg/8 text-ink-600">
+            Case studies are on their way. In the meantime, <a href="/contact/" class="font-semibold text-brand-700">get in touch</a> and
+            we'll talk you through relevant projects.
+          </p>
+        )
+      }
+    </div>
+  </section>
+</Base>

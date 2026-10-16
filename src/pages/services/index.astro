@@ -1,0 +1,21 @@
+---
+import Base from "../../layouts/Base.astro";
+import PageHeader from "../../components/PageHeader.astro";
+import ServiceCard from "../../components/ServiceCard.astro";
+import { getServices } from "../../lib/content";
+
+const services = await getServices();
+---
+
+<Base title="Services" description="Platform engineering, infrastructure as code, cloud migration, platform reviews and training.">
+  <PageHeader
+    eyebrow="Services"
+    title="Everything between your code and production"
+    lead="We help engineering teams build platforms they can depend on and deliver software without the drama. Start with one service or combine them. Most engagements touch more than one."
+  />
+  <section class="py-24 sm:py-32">
+    <div class="mx-auto grid max-w-7xl grid-cols-1 gap-6 px-6 sm:grid-cols-2 lg:px-8">
+      {services.map((service) => <ServiceCard service={service} />)}
+    </div>
+  </section>
+</Base>

@@ -1,0 +1,25 @@
+---
+import { site } from "../data/site";
+---
+
+<section class="bg-brand-950">
+  <div class="mx-auto max-w-7xl px-6 py-20 sm:py-24 lg:flex lg:items-center lg:justify-between lg:px-8">
+    <div>
+      <h2 class="max-w-2xl text-3xl font-semibold tracking-tight text-white sm:text-4xl">Got a platform problem?</h2>
+      <p class="mt-4 max-w-xl text-lg/8 text-brand-100/70">
+        Tell us what you're running and where it hurts. We'll tell you honestly whether we can help.
+      </p>
+    </div>
+    <div class="mt-10 flex flex-wrap items-center gap-x-6 gap-y-4 lg:mt-0 lg:shrink-0">
+      <a
+        href="/contact/"
+        class="rounded-full bg-accent-400 px-5 py-2.5 text-sm font-semibold text-ink-950 hover:bg-accent-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-400"
+      >
+        Start a conversation
+      </a>
+      <a href={`mailto:${site.email}`} class="text-sm/6 font-semibold text-white">
+        {site.email} <span aria-hidden="true">→</span>
+      </a>
+    </div>
+  </div>
+</section>
