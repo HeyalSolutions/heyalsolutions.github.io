@@ -1,4 +1,4 @@
-import { defineCollection } from "astro:content";
+import { defineCollection, reference } from "astro:content";
 import { glob } from "astro/loaders";
 import { z } from "astro/zod";
 
@@ -18,14 +18,18 @@ const services = defineCollection({
 });
 
 const work = defineCollection({
-  loader: glob({ pattern: "**/*.md", base: "./src/content/work" }),
+  // Files starting with "_" (e.g. _template.md) are ignored.
+  loader: glob({ pattern: "**/[^_]*.md", base: "./src/content/work" }),
   schema: z.object({
     title: z.string(),
     client: z.string(),
     sector: z.string(),
     summary: z.string(),
-    services: z.array(z.string()),
+    services: z.array(reference("services")),
     results: z.array(z.string()),
+    duration: z.string().optional(),
+    team: z.string().optional(),
+    stack: z.array(z.string()).default([]),
     order: z.number().default(0),
     draft: z.boolean().default(false),
   }),
