@@ -1,9 +1,9 @@
 ---
 title: "My Home Office Build, Part 4: Finishing Off, and Four Years On"
 description: "Plastering, render, underfloor heating and flooring, what the build cost, and what it's like to work in four years later."
-pubDate: 2026-10-17
-heroImage: ../../assets/blog/office/bifold.jpg
-heroAlt: "The finished office with its bifold doors fitted"
+pubDate: 2026-10-16
+heroImage: ../../assets/blog/office/headline.jpg
+heroAlt: "Home office lit from above and the side"
 personal: true
 series:
   id: office-build
