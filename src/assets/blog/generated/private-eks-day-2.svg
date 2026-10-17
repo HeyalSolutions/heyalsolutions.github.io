@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="800" viewBox="0 0 1600 800">
+  <defs>
+    <pattern id="grid" width="64" height="64" patternUnits="userSpaceOnUse">
+      <path d="M64 0H0V64" fill="none" stroke="#ffffff" stroke-opacity="0.05" stroke-width="1.5"/>
+    </pattern>
+    <radialGradient id="teal" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#2e9488" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#2e9488" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="amber" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#f5a65b" stop-opacity="0.28"/>
+      <stop offset="1" stop-color="#f5a65b" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1600" height="800" fill="#0a2523"/>
+  <rect width="1600" height="800" fill="url(#grid)"/>
+  <circle cx="1040" cy="400" r="560" fill="url(#teal)"/>
+  <circle cx="260" cy="620" r="420" fill="url(#amber)"/>
+  <rect x="640" y="150" width="780" height="500" rx="36" fill="#0a2523" fill-opacity="0.35"
+        stroke="#f5a65b" stroke-opacity="0.85" stroke-width="3" stroke-dasharray="18 12"/>
+  <g stroke="#7ccdc1" stroke-opacity="0.55" stroke-width="3" fill="none">
+    <path d="M820 300L980 250M980 250L1140 310M820 300L900 460M980 250L1060 420M1140 310L1060 420M900 460L1060 420M1060 420L1220 480M1140 310L1220 480M900 460L1040 570M1040 570L1220 480M1060 420L1040 570"/>
+  </g>
+  <g fill="#123b38" stroke="#7ccdc1" stroke-width="3">
+    <path d="M820.0 270.0L846.0 285.0L846.0 315.0L820.0 330.0L794.0 315.0L794.0 285.0z"/>
+    <path d="M980.0 220.0L1006.0 235.0L1006.0 265.0L980.0 280.0L954.0 265.0L954.0 235.0z"/>
+    <path d="M1140.0 280.0L1166.0 295.0L1166.0 325.0L1140.0 340.0L1114.0 325.0L1114.0 295.0z"/>
+    <path d="M900.0 430.0L926.0 445.0L926.0 475.0L900.0 490.0L874.0 475.0L874.0 445.0z"/>
+    <path d="M1060.0 390.0L1086.0 405.0L1086.0 435.0L1060.0 450.0L1034.0 435.0L1034.0 405.0z"/>
+    <path d="M1220.0 450.0L1246.0 465.0L1246.0 495.0L1220.0 510.0L1194.0 495.0L1194.0 465.0z"/>
+    <path d="M1040.0 540.0L1066.0 555.0L1066.0 585.0L1040.0 600.0L1014.0 585.0L1014.0 555.0z"/>
+  </g>
+  <path d="M1060.0 368.0L1105.0 394.0L1105.0 446.0L1060.0 472.0L1015.0 446.0L1015.0 394.0z" fill="#1f5f59" stroke="#aee3da" stroke-width="4"/>
+  <circle cx="1060" cy="420" r="14" fill="#aee3da"/>
+  <!-- Narrow tunnel from a laptop outside, through the boundary -->
+  <path d="M330 470C470 470 520 400 640 400S820 420 1004 420" stroke="#f8c48a" stroke-width="5" stroke-dasharray="2 14" stroke-linecap="round" fill="none"/>
+  <g transform="translate(640 400)">
+    <circle r="40" fill="#0a2523" stroke="#f5a65b" stroke-width="4"/>
+    <circle cy="-6" r="8" fill="#f5a65b"/>
+    <path d="M-5 -2L-8 16H8L5 -2z" fill="#f5a65b"/>
+  </g>
+  <g fill="none" stroke="#f8c48a" stroke-width="4" stroke-linejoin="round">
+    <rect x="200" y="410" width="150" height="96" rx="8"/>
+    <path d="M176 520H374l-16 18H192z" fill="#f8c48a" fill-opacity="0.2"/>
+  </g>
+  <path d="M232 448l18 12-18 12M262 476h30" fill="none" stroke="#f8c48a" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Load balancer, DNS and key glyphs along the top edge -->
+  <g fill="#0a2523" stroke="#aee3da" stroke-width="3">
+    <circle cx="820" cy="150" r="30"/>
+    <circle cx="1030" cy="150" r="30"/>
+    <circle cx="1240" cy="150" r="30"/>
+  </g>
+  <g fill="none" stroke="#aee3da" stroke-width="3" stroke-linecap="round">
+    <path d="M806 140h28M806 150h28M806 160h28"/>
+    <circle cx="1030" cy="150" r="14"/><path d="M1016 150h28M1030 136c-8 8-8 20 0 28M1030 136c8 8 8 20 0 28"/>
+    <circle cx="1232" cy="150" r="8"/><path d="M1240 150h14M1250 150v6"/>
+  </g>
+</svg>
