@@ -1,10 +1,11 @@
 ---
 title: "How To Get Started Contributing to OpenFaaS"
-description: "Get started contributing to OpenFaaS"
+description: "A step-by-step guide to your first OpenFaaS contribution: setting up Go, Docker and Kubernetes, finding an issue, forking the repository, and opening a pull request."
 pubDate: 2020-01-04
 heroImage: ../../assets/blog/of-contributing.jpg
 heroAlt: "A selection of Open Source stickers and my laptop"
 changes: "Several projects listed here (OpenFaaS Cloud, ofc-bootstrap and the open-source inlets) have since been retired, k3d's commands have changed (k3d cluster create), and Go modules have replaced GOPATH. Check the current OpenFaaS contributing guide before starting."
+tags: [openfaas, serverless, open-source, go, kubernetes]
 ---
 
 ## New Year New You?

@@ -1,4 +1,4 @@
-import { getCollection } from "astro:content";
+import { getCollection, type CollectionEntry } from "astro:content";
 
 export async function getServices() {
   const services = await getCollection("services");
@@ -26,6 +26,22 @@ export async function getPosts() {
     (a, b) =>
       b.data.pubDate.valueOf() - a.data.pubDate.valueOf() || (b.data.series?.part ?? 0) - (a.data.series?.part ?? 0),
   );
+}
+
+/**
+ * Up to `limit` other technical posts, ranked by shared tags then recency. Parts of the same series are
+ * left out because the series navigation already links them. Personal posts get no related posts.
+ */
+export function relatedPosts(post: CollectionEntry<"blog">, posts: CollectionEntry<"blog">[], limit = 3) {
+  if (post.data.personal) return [];
+  const tags = new Set(post.data.tags);
+  const seriesId = post.data.series?.id;
+  return posts
+    .filter((p) => p.id !== post.id && !p.data.personal && (!seriesId || p.data.series?.id !== seriesId))
+    .map((p) => ({ p, shared: p.data.tags.filter((t) => tags.has(t)).length }))
+    .sort((a, b) => b.shared - a.shared || b.p.data.pubDate.valueOf() - a.p.data.pubDate.valueOf())
+    .slice(0, limit)
+    .map(({ p }) => p);
 }
 
 export function readingTime(markdown: string | undefined): number {

@@ -1,10 +1,11 @@
 ---
 title: "Exploring NAT Traversal and Tunnels with Inlets and Inlets Pro"
-description: "Give anything a public IP with inlets and inlets pro"
+description: "How inlets tunnels give services behind NAT or a firewall a public IP, using inletsctl and the inlets-operator, and when you need inlets PRO for non-HTTP traffic."
 pubDate: 2020-01-20
 heroImage: ../../assets/blog/inlets-headline.png
-heroAlt: "inlets pro headline image"
+heroAlt: "The inlets PRO logo"
 changes: "The open-source inlets project has since been retired and inlets is now a commercial product, so the open-source client, download URLs, licensing and some commands shown here no longer apply. See docs.inlets.dev for current instructions."
+tags: [inlets, networking, tunnels, kubernetes]
 ---
 
 ## Inlets! What is it?

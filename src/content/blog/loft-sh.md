@@ -1,10 +1,12 @@
 ---
 title: "First look at loft.sh using GitOps"
-description: "Installation and configuration of loft.sh with Flux"
+description: "Using loft.sh for self-service Kubernetes namespaces and virtual clusters on a shared multi-tenant platform, installed and configured with Flux GitOps."
 pubDate: 2022-03-15
 heroImage: ../../assets/blog/loft.jpg
 heroAlt: "Container in the sky"
 changes: "Loft has since refocused on vCluster (loft.sh now redirects to vcluster.com), so the product, Helm chart, CLI and docs referenced here have changed. Flux's documentation has also moved to fluxcd.io/flux."
+tags: [kubernetes, gitops, flux, multi-tenancy, vcluster]
+service: platform-engineering
 ---
 
 ## The problem
