@@ -11,9 +11,16 @@ export async function getCaseStudies() {
   return work.sort((a, b) => a.data.order - b.data.order);
 }
 
-/** Newest first. Drafts are visible in `astro dev` and excluded from production builds. */
+/**
+ * Newest first. Drafts and future-dated posts are visible in `astro dev` and excluded from production builds;
+ * a scheduled rebuild (see .github/workflows/deploy.yml) publishes each post once its pubDate arrives.
+ */
 export async function getPosts() {
-  const posts = await getCollection("blog", ({ data }) => import.meta.env.DEV || !data.draft);
+  const now = Date.now();
+  const posts = await getCollection(
+    "blog",
+    ({ data }) => import.meta.env.DEV || (!data.draft && data.pubDate.valueOf() <= now),
+  );
   // Newest first; parts of a series published on the same day list in reverse part order.
   return posts.sort(
     (a, b) =>
