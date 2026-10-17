@@ -48,6 +48,10 @@ const blog = defineCollection({
       heroAlt: z.string().default(""),
       /** Personal posts are listed on /blog but not featured on the home page. */
       personal: z.boolean().default(false),
+      /** Topics used to pick related posts and as schema.org keywords. Lowercase, e.g. "eks", "gitops". */
+      tags: z.array(z.string()).default([]),
+      /** The service this post relates to; linked from the end of the post. */
+      service: reference("services").optional(),
       /** Groups multi-part posts; parts are linked to each other on the post page. */
       series: z.object({ id: z.string(), title: z.string(), part: z.number().int().positive() }).optional(),
       /** Post-specific note on what has changed since publication (Markdown not supported). */

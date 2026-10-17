@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <pattern id="grid" width="64" height="64" patternUnits="userSpaceOnUse">
+      <path d="M64 0H0V64" fill="none" stroke="#ffffff" stroke-opacity="0.05" stroke-width="1.5"/>
+    </pattern>
+    <radialGradient id="teal" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#2e9488" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#2e9488" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="amber" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#f5a65b" stop-opacity="0.28"/>
+      <stop offset="1" stop-color="#f5a65b" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="630" fill="#0a2523"/>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+  <circle cx="900" cy="260" r="460" fill="url(#teal)"/>
+  <circle cx="1080" cy="520" r="300" fill="url(#amber)"/>
+  <g transform="translate(96 112)">
+    <rect width="88" height="88" rx="22" fill="#1f5f59"/>
+    <path d="M27.5 22v44M60.5 22v44M27.5 44h33" stroke="#fff" stroke-width="9.6" stroke-linecap="round"/>
+    <text x="116" y="60" font-family="Manrope, Helvetica Neue, Arial, sans-serif" font-size="40" font-weight="700" fill="#ffffff">Heyal Solutions</text>
+  </g>
+  <text font-family="Manrope, Helvetica Neue, Arial, sans-serif" font-weight="700" fill="#ffffff" font-size="76" letter-spacing="-1.5">
+    <tspan x="96" y="350">Make shipping</tspan>
+    <tspan x="96" y="440">software boring</tspan>
+  </text>
+  <text x="96" y="530" font-family="Manrope, Helvetica Neue, Arial, sans-serif" font-size="30" font-weight="500" fill="#aee3da">Kubernetes, infrastructure as code and delivery pipelines</text>
+</svg>

@@ -1,12 +1,14 @@
 ---
 import type { GetStaticPaths } from "astro";
-import { render } from "astro:content";
-import { Image } from "astro:assets";
+import { getEntry, render } from "astro:content";
+import { Image, getImage } from "astro:assets";
 import Base from "../../layouts/Base.astro";
 import SeriesNav from "../../components/SeriesNav.astro";
 import PostCta from "../../components/PostCta.astro";
+import PostCard from "../../components/PostCard.astro";
 import { site } from "../../data/site";
-import { formatDate, getPosts, readingTime } from "../../lib/content";
+import { formatDate, getPosts, readingTime, relatedPosts } from "../../lib/content";
+import { breadcrumbs, founder, ids } from "../../lib/seo";
 
 export const getStaticPaths = (async () => {
   const posts = await getPosts();
@@ -15,16 +17,45 @@ export const getStaticPaths = (async () => {
     const parts = seriesId
       ? posts.filter((p) => p.data.series?.id === seriesId).sort((a, b) => a.data.series!.part - b.data.series!.part)
       : [];
-    return { params: { slug: post.id }, props: { post, parts } };
+    return { params: { slug: post.id }, props: { post, parts, related: relatedPosts(post, posts) } };
   });
 }) satisfies GetStaticPaths;
 
-const { post, parts } = Astro.props;
+const { post, parts, related } = Astro.props;
 const index = parts.findIndex((p) => p.id === post.id);
 const previous = index > 0 ? parts[index - 1] : undefined;
 const next = index >= 0 ? parts[index + 1] : undefined;
 const { Content } = await render(post);
-const { title, description, pubDate, updatedDate, heroImage, heroAlt, personal, changes, cta } = post.data;
+const { title, description, pubDate, updatedDate, heroImage, heroAlt, personal, changes, tags, cta } = post.data;
+const service = post.data.service ? await getEntry(post.data.service) : undefined;
+
+const path = `/blog/${post.id}/`;
+const shareImage = heroImage ? new URL((await getImage({ src: heroImage, width: 1200, height: 630, fit: "cover", format: "jpg" })).src, Astro.site) : undefined;
+const schema = [
+  {
+    "@type": "BlogPosting",
+    "@id": new URL(`${path}#article`, Astro.site).toString(),
+    mainEntityOfPage: new URL(path, Astro.site).toString(),
+    headline: title,
+    description,
+    datePublished: pubDate.toISOString(),
+    dateModified: (updatedDate ?? pubDate).toISOString(),
+    author: founder,
+    publisher: { "@id": ids.organization },
+    inLanguage: "en-GB",
+    wordCount: (post.body ?? "").split(/\s+/).filter(Boolean).length,
+    ...(shareImage && { image: shareImage.toString() }),
+    ...(tags.length > 0 && { keywords: tags.join(", ") }),
+    ...(post.data.series && {
+      isPartOf: { "@type": "CreativeWorkSeries", name: post.data.series.title },
+      position: post.data.series.part,
+    }),
+  },
+  breadcrumbs([
+    { name: "Blog", path: "/blog/" },
+    { name: title, path },
+  ]),
+];
 
 // Technical posts older than two years get a notice that tools and versions have moved on.
 const TWO_YEARS_MS = 2 * 365 * 24 * 60 * 60 * 1000;
@@ -33,7 +64,17 @@ const showNotice = !personal && (isOld || Boolean(changes));
 const writtenIn = new Intl.DateTimeFormat("en-GB", { month: "long", year: "numeric" }).format(pubDate);
 ---
 
-<Base title={title} description={description} ogType="article" cta={!cta}>
+<Base
+  title={title}
+  description={description}
+  ogType="article"
+  image={heroImage}
+  imageAlt={heroAlt || title}
+  published={pubDate}
+  modified={updatedDate}
+  schema={schema}
+  cta={!cta}
+>
   <article>
     <header class="mx-auto max-w-3xl px-6 pt-16 sm:pt-24 lg:px-8">
       <a href="/blog/" class="text-sm/6 font-semibold text-brand-700 dark:text-brand-300"
@@ -144,6 +185,41 @@ const writtenIn = new Intl.DateTimeFormat("en-GB", { month: "long", year: "numer
       )
     }
 
+    {/* A post-specific call to action wins over the generic related-service box. */}
     {cta && <PostCta id={cta} />}
+    {
+      !cta && service && (
+        <aside aria-label="Related service" class="mx-auto max-w-3xl px-6 pb-16 lg:px-8">
+          <a
+            href={`/services/${service.id}/`}
+            class="group block rounded-2xl bg-brand-950 p-8 text-white ring-1 ring-brand-900 hover:ring-brand-500"
+          >
+            <span class="text-sm/6 font-semibold text-accent-400">Need a hand with this?</span>
+            <span class="mt-2 block text-xl font-semibold tracking-tight">{service.data.title}</span>
+            <span class="mt-2 block text-base/7 text-brand-100/70">{service.data.summary}</span>
+            <span class="mt-4 inline-block text-sm/6 font-semibold">
+              How we help <span aria-hidden="true">→</span>
+            </span>
+          </a>
+        </aside>
+      )
+    }
   </article>
+
+  {
+    related.length > 0 && (
+      <section aria-labelledby="related-heading" class="border-t border-ink-200 py-20 sm:py-24">
+        <div class="mx-auto max-w-7xl px-6 lg:px-8">
+          <h2 id="related-heading" class="text-2xl font-semibold tracking-tight text-ink-900">
+            Related posts
+          </h2>
+          <div class="mt-10 grid grid-cols-1 gap-x-8 gap-y-16 lg:grid-cols-3">
+            {related.map((p) => (
+              <PostCard post={p} />
+            ))}
+          </div>
+        </div>
+      </section>
+    )
+  }
 </Base>

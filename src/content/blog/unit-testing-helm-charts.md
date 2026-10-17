@@ -1,10 +1,12 @@
 ---
-title: "How to unit-test your helm charts with Golang"
-description: "We explore unit testing Helm charts with Golang"
+title: "How to Unit Test Helm Charts with Go"
+description: "Write Go unit tests that render your Helm chart templates and assert on the Kubernetes manifests, so you can change charts with confidence. Includes a full example."
 pubDate: 2021-01-23
 heroImage: ../../assets/blog/helm.jpg
 heroAlt: "A ship's wheel silhouetted against a sunset"
 changes: "The networking.k8s.io/v1beta1 Ingress API used in the example was removed in Kubernetes 1.22 (use networking.k8s.io/v1), the Helm Go APIs have moved on, and the OpenFaaS Cloud repository linked below is now archived. The helm-unittest plugin is a popular alternative to the approach shown here."
+tags: [helm, testing, go, kubernetes]
+service: infrastructure-and-delivery
 cta: delivery
 ---
 

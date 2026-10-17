@@ -1,11 +1,16 @@
 export const site = {
   name: "Heyal Solutions",
+  url: "https://www.heyal.co.uk",
+  /** Used as the full <title> on the home page. */
+  defaultTitle: "Kubernetes & Platform Engineering Consultancy | Heyal Solutions",
   legalName: "Heyal Solutions Ltd",
   description:
     "Cloud native consultancy. We design, build and fix the Kubernetes platforms, infrastructure and delivery pipelines engineering teams ship on.",
   email: "sales@heyal.co.uk",
   companyNumber: "12189247",
   registeredAddress: "Birmingham, UK",
+  locality: "Birmingham",
+  country: "GB",
   founder: "Alistair Hey",
   blog: "/blog/",
   github: "https://github.com/Waterdrips",

@@ -5,6 +5,9 @@ on:
     branches: [master]
   pull_request:
   workflow_dispatch:
+  # Rebuild weekly so posts with a future pubDate go live once it arrives (Saturday ~07:17 UTC; runs may be late).
+  schedule:
+    - cron: "17 7 * * 6"
 
 permissions:
   contents: read

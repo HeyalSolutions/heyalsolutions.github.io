@@ -3,8 +3,9 @@ title: "OpenFaaS, what's it all about?"
 description: "Exploring serverless on Kubernetes. To roll your own or not?"
 pubDate: 2020-05-12
 heroImage: ../../assets/blog/of-headline.png
-heroAlt: "OpenFaaS Logo"
+heroAlt: "The OpenFaaS logo"
 changes: "OpenFaaS Cloud has since been retired, and k3d's commands have changed (clusters are now created with k3d cluster create). OpenFaaS itself is still actively developed; see docs.openfaas.com for current installation steps."
+tags: [openfaas, serverless, kubernetes]
 ---
 
 Serverless should let you focus on delivering features into production fast not fiddling with infrastructure.

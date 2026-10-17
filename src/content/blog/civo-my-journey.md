@@ -1,10 +1,11 @@
 ---
-title: "Civo Kubernetes KUBE100"
-description: "What I have been up to on Civo's managed k3s service"
+title: "Civo Kubernetes KUBE100: First Look at Managed k3s"
+description: "What k3s is and how it differs from full Kubernetes, my experience on the beta of Civo's managed k3s service, contributing to its app marketplace, and other k3s tooling."
 pubDate: 2020-01-07
 heroImage: ../../assets/blog/civo-card.jpg
-heroAlt: "civo kube100 stickers"
+heroAlt: "Civo KUBE100 stickers"
 changes: "The KUBE100 beta ended long ago and Civo Kubernetes is now generally available, the Civo CLI has been rewritten, OpenFaaS Cloud has been retired, and k3d's commands have changed (k3d cluster create)."
+tags: [kubernetes, k3s, civo, open-source]
 ---
 
 ## The World's First Managed K3s
