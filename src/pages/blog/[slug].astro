@@ -59,16 +59,20 @@ const writtenIn = new Intl.DateTimeFormat("en-GB", { month: "long", year: "numer
       </div>
     </header>
 
-    <div class="mx-auto mt-12 max-w-5xl px-6 lg:px-8">
-      <Image
-        src={heroImage}
-        alt={heroAlt}
-        widths={[800, 1200, 1600]}
-        sizes="(min-width: 1024px) 1024px, 100vw"
-        loading="eager"
-        class="aspect-[2/1] w-full rounded-2xl object-cover ring-1 ring-ink-200"
-      />
-    </div>
+    {
+      heroImage && (
+        <div class="mx-auto mt-12 max-w-5xl px-6 lg:px-8">
+          <Image
+            src={heroImage}
+            alt={heroAlt}
+            widths={[800, 1200, 1600]}
+            sizes="(min-width: 1024px) 1024px, 100vw"
+            loading="eager"
+            class="aspect-[2/1] w-full rounded-2xl object-cover ring-1 ring-ink-200"
+          />
+        </div>
+      )
+    }
 
     {
       parts.length > 1 && (
