@@ -1,0 +1,29 @@
+---
+import Base from "../../layouts/Base.astro";
+import PageHeader from "../../components/PageHeader.astro";
+import PostCard from "../../components/PostCard.astro";
+import { getPosts } from "../../lib/content";
+
+const posts = await getPosts();
+---
+
+<Base title="Blog" description="Writing on Kubernetes, GitOps, serverless and open source from the Heyal Solutions team.">
+  <PageHeader
+    eyebrow="Blog"
+    title="Notes from the platform"
+    lead="Writing on Kubernetes, GitOps, serverless and open source, from the work we do and the projects we contribute to."
+  >
+    <a href="/blog/rss.xml" class="mt-8 inline-flex items-center gap-x-2 text-sm/6 font-semibold text-brand-700 dark:text-brand-300">
+      <svg class="size-4" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+        <path d="M3.75 3a.75.75 0 0 0-.75.75v.5c0 .414.336.75.75.75H4c6.075 0 11 4.925 11 11v.25c0 .414.336.75.75.75h.5a.75.75 0 0 0 .75-.75V16C17 8.82 11.18 3 4 3h-.25Z"></path>
+        <path d="M3 8.75A.75.75 0 0 1 3.75 8H4a8 8 0 0 1 8 8v.25a.75.75 0 0 1-.75.75h-.5a.75.75 0 0 1-.75-.75V16a6 6 0 0 0-6-6h-.25A.75.75 0 0 1 3 9.25v-.5ZM7 15a2 2 0 1 1-4 0 2 2 0 0 1 4 0Z"></path>
+      </svg>
+      RSS feed
+    </a>
+  </PageHeader>
+  <section class="py-20 sm:py-24">
+    <div class="mx-auto grid max-w-7xl grid-cols-1 gap-x-8 gap-y-16 px-6 sm:grid-cols-2 lg:grid-cols-3 lg:px-8">
+      {posts.map((post) => <PostCard post={post} />)}
+    </div>
+  </section>
+</Base>

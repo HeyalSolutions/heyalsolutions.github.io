@@ -7,7 +7,7 @@ export const site = {
   companyNumber: "12189247",
   registeredAddress: "Birmingham, UK",
   founder: "Alistair Hey",
-  blog: "https://blog.heyal.co.uk",
+  blog: "/blog/",
   github: "https://github.com/Waterdrips",
   linkedin: "https://www.linkedin.com/in/alistair-hey/",
 } as const;
@@ -23,7 +23,7 @@ export const nav: NavLink[] = [
   { label: "How we work", href: "/how-we-work/" },
   { label: "Work", href: "/work/" },
   { label: "About", href: "/about/" },
-  { label: "Blog", href: site.blog, external: true },
+  { label: "Blog", href: "/blog/" },
 ];
 
 export type IconName = "code" | "chat" | "cloud" | "heart" | "cube" | "rocket" | "academic" | "search";
@@ -118,26 +118,5 @@ export const process: { step: string; title: string; body: string }[] = [
     step: "04",
     title: "Hand over",
     body: "Documentation, runbooks and pairing, so your team owns everything we've built.",
-  },
-];
-
-export const posts: { title: string; summary: string; href: string; date: string }[] = [
-  {
-    title: "First look at loft.sh using GitOps",
-    summary: "Installing and configuring loft.sh with Flux.",
-    href: "https://blog.heyal.co.uk/loft-sh/",
-    date: "2022-03-15",
-  },
-  {
-    title: "How to unit-test your Helm charts with Golang",
-    summary: "Catching packaging bugs before they reach a cluster.",
-    href: "https://blog.heyal.co.uk/unit-testing-helm-charts/",
-    date: "2021-01-23",
-  },
-  {
-    title: "OpenFaaS, what's it all about?",
-    summary: "Serverless on Kubernetes: should you build your own or not?",
-    href: "https://blog.heyal.co.uk/openfaas-whats-it-about/",
-    date: "2020-05-12",
   },
 ];

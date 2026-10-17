@@ -13,6 +13,7 @@ npm run build    # type-check + static build to dist/
 - `src/content/services/*.md`: one file per service page (frontmatter + body)
 - `src/content/work/*.md`: case studies. `draft: true` shows them in `npm run dev` only.
   The Work nav link and home page section appear once at least one is published.
+- `src/content/blog/*.md`: blog posts, with images in `src/assets/blog/`. `personal: true` keeps a post off the home page.
 - `src/data/site.ts`: company details, nav, home page copy, engagement models, blog posts
 
 Pushes to `master` deploy via GitHub Actions (`.github/workflows/deploy.yml`).
