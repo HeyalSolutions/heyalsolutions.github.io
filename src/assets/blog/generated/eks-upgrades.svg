@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="800" viewBox="0 0 1600 800">
+  <defs>
+    <pattern id="grid" width="64" height="64" patternUnits="userSpaceOnUse">
+      <path d="M64 0H0V64" fill="none" stroke="#ffffff" stroke-opacity="0.05" stroke-width="1.5"/>
+    </pattern>
+    <radialGradient id="teal" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#2e9488" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#2e9488" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="amber" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#f5a65b" stop-opacity="0.28"/>
+      <stop offset="1" stop-color="#f5a65b" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1600" height="800" fill="#0a2523"/>
+  <rect width="1600" height="800" fill="url(#grid)"/>
+  <circle cx="1000" cy="360" r="560" fill="url(#teal)"/>
+  <circle cx="300" cy="660" r="420" fill="url(#amber)"/>
+  <g>
+    <rect x="220" y="560" width="220" height="160" rx="16" fill="#123b38" fill-opacity="1" stroke="#7ccdc1" stroke-width="3"/>
+    <path d="M260 604h140" stroke="#7ccdc1" stroke-opacity="0.6" stroke-width="6" stroke-linecap="round"/>
+    <rect x="460" y="490" width="220" height="230" rx="16" fill="#123b38" fill-opacity="1" stroke="#7ccdc1" stroke-width="3"/>
+    <path d="M500 534h140" stroke="#7ccdc1" stroke-opacity="0.6" stroke-width="6" stroke-linecap="round"/>
+    <rect x="700" y="420" width="220" height="300" rx="16" fill="#123b38" fill-opacity="1" stroke="#7ccdc1" stroke-width="3"/>
+    <path d="M740 464h140" stroke="#7ccdc1" stroke-opacity="0.6" stroke-width="6" stroke-linecap="round"/>
+    <rect x="940" y="350" width="220" height="370" rx="16" fill="#1f5f59" fill-opacity="1" stroke="#7ccdc1" stroke-width="3"/>
+    <path d="M980 394h140" stroke="#7ccdc1" stroke-opacity="0.6" stroke-width="6" stroke-linecap="round"/>
+    <rect x="1180" y="280" width="220" height="440" rx="16" fill="#0a2523" fill-opacity="0.4" stroke="#f5a65b" stroke-width="3" stroke-dasharray="14 10"/>
+    <path d="M1220 324h140" stroke="#f5a65b" stroke-opacity="0.6" stroke-width="6" stroke-linecap="round"/>
+  </g>
+  <!-- The cluster, about to step up -->
+  <path d="M1050.0 216.0L1095.0 242.0L1095.0 294.0L1050.0 320.0L1005.0 294.0L1005.0 242.0z" fill="#1f5f59" stroke="#aee3da" stroke-width="4"/>
+  <circle cx="1050" cy="268" r="14" fill="#aee3da"/>
+  <path d="M1110 250C1170 190 1240 190 1290 240" stroke="#f8c48a" stroke-width="4" stroke-dasharray="4 12" stroke-linecap="round" fill="none"/>
+  <path d="M1276 222l16 20-24 4" stroke="#f8c48a" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <g fill="#f8c48a">
+    <circle cx="330" cy="530" r="6" fill-opacity="0.25"/>
+    <circle cx="570" cy="460" r="6" fill-opacity="0.4"/>
+    <circle cx="810" cy="390" r="6" fill-opacity="0.55"/>
+    <circle cx="1050" cy="320" r="6" fill-opacity="0.7"/>
+  </g>
+</svg>
