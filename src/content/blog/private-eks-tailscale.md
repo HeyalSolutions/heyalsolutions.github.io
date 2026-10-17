@@ -5,6 +5,7 @@ pubDate: 2026-11-14
 heroImage: ../../assets/blog/generated/private-eks-tailscale.jpg
 heroAlt: "Several laptops outside a padlocked VPC boundary, each joined to the cluster inside by its own line through a single gateway"
 draft: true
+cta: private-eks
 ---
 
 In [Day 2 on a private EKS cluster](/blog/private-eks-day-2/) we gave people a way into a cluster with no public API
@@ -367,6 +368,3 @@ The cluster still has no public endpoint, and CI still never talks to it. But an
 identity provider can now run `kubectl` with sensible permissions and open internal tools in a browser, without an AWS
 account, a tunnel or a client config. The access rules live in Terraform, the operator is installed by Argo CD, and
 neither needs a stored secret.
-
-If you're working out how to give a growing team safe access to private infrastructure, we'd be happy to help. See our
-[platform engineering](/services/platform-engineering/) work or [get in touch](/contact/).

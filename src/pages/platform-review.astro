@@ -1,0 +1,175 @@
+---
+import Base from "../layouts/Base.astro";
+import PageHeader from "../components/PageHeader.astro";
+import { review, site } from "../data/site";
+import { getPosts } from "../lib/content";
+
+// Only link to the audit findings post once it's published.
+const auditPost = (await getPosts()).find((post) => post.id === "platform-audit-findings");
+const enquiry = `mailto:${site.email}?subject=${encodeURIComponent("Platform review")}`;
+
+const facts = [
+  { label: "Duration", value: review.duration },
+  { label: "Price", value: review.price ?? "Fixed, agreed before we start" },
+  { label: "Your team's time", value: review.teamTime },
+  { label: "Access", value: review.access },
+];
+---
+
+<Base
+  title={review.name}
+  description={`A fixed-scope, fixed-price review of your Kubernetes platform, infrastructure as code and delivery pipelines, with a prioritised report of what to fix first.`}
+  cta={false}
+>
+  <PageHeader
+    eyebrow={review.name}
+    title="Find out what to fix first"
+    lead="An outside look at how your platform is built and run. In two weeks we go through your Kubernetes, Terraform and pipelines, talk to the engineers who use them, and give you a ranked list of what to fix and in what order."
+  >
+    <div class="mt-10 flex flex-wrap items-center gap-x-6 gap-y-4">
+      <a
+        href={enquiry}
+        class="rounded-full bg-brand-700 px-5 py-2.5 text-sm font-semibold text-white shadow-xs hover:bg-brand-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-700"
+      >
+        Book a review
+      </a>
+      <a href="#what-we-look-at" class="text-sm/6 font-semibold text-ink-900">
+        What we look at <span aria-hidden="true">↓</span>
+      </a>
+    </div>
+  </PageHeader>
+
+  <!-- Key facts -->
+  <section class="border-b border-ink-200 bg-surface">
+    <dl class="mx-auto grid max-w-7xl grid-cols-1 gap-x-8 gap-y-8 px-6 py-12 sm:grid-cols-2 lg:grid-cols-4 lg:px-8">
+      {
+        facts.map((fact) => (
+          <div class="border-l-2 border-accent-400 pl-4">
+            <dt class="text-sm/6 text-ink-500">{fact.label}</dt>
+            <dd class="mt-1 text-base/7 font-semibold text-ink-900">{fact.value}</dd>
+          </div>
+        ))
+      }
+    </dl>
+  </section>
+
+  <!-- Areas -->
+  <section id="what-we-look-at" class="scroll-mt-20 py-24 sm:py-32">
+    <div class="mx-auto max-w-7xl px-6 lg:px-8">
+      <div class="max-w-2xl">
+        <h2 class="text-base/7 font-semibold text-brand-600 dark:text-brand-400">What we look at</h2>
+        <p class="mt-2 text-3xl font-semibold tracking-tight text-pretty text-ink-900 sm:text-4xl">
+          The whole path from commit to production
+        </p>
+        <p class="mt-6 text-lg/8 text-ink-600">
+          We agree the scope with you first, but most reviews cover these six areas. We look at the code and at how
+          things actually run, because the two are rarely the same.
+          {
+            auditPost && (
+              <>
+                {" "}
+                See <a href={`/blog/${auditPost.id}/`} class="font-semibold text-brand-700 dark:text-brand-300">what we usually find</a>.
+              </>
+            )
+          }
+        </p>
+      </div>
+      <dl class="mt-16 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {
+          review.areas.map((area) => (
+            <div class="rounded-2xl bg-surface p-8 ring-1 ring-ink-200">
+              <dt class="text-lg/7 font-semibold text-ink-900">{area.title}</dt>
+              <dd class="mt-2 text-base/7 text-ink-600">{area.body}</dd>
+            </div>
+          ))
+        }
+      </dl>
+    </div>
+  </section>
+
+  <!-- Steps -->
+  <section class="border-y border-ink-200 bg-surface py-24 sm:py-32">
+    <div class="mx-auto max-w-7xl px-6 lg:px-8">
+      <div class="max-w-2xl">
+        <h2 class="text-base/7 font-semibold text-brand-600 dark:text-brand-400">How it runs</h2>
+        <p class="mt-2 text-3xl font-semibold tracking-tight text-pretty text-ink-900 sm:text-4xl">
+          Light on your team's time
+        </p>
+      </div>
+      <ol class="mt-16 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
+        {
+          review.steps.map((step) => (
+            <li class="border-t-2 border-brand-600 pt-6">
+              <p class="font-mono text-sm font-semibold text-accent-500">{step.when}</p>
+              <h3 class="mt-2 text-lg/8 font-semibold text-ink-900">{step.title}</h3>
+              <p class="mt-2 text-base/7 text-ink-600">{step.body}</p>
+            </li>
+          ))
+        }
+      </ol>
+    </div>
+  </section>
+
+  <!-- Deliverables and fit -->
+  <section class="py-24 sm:py-32">
+    <div class="mx-auto grid max-w-7xl grid-cols-1 gap-16 px-6 lg:grid-cols-2 lg:px-8">
+      <div>
+        <h2 class="text-base/7 font-semibold text-brand-600 dark:text-brand-400">What you get</h2>
+        <p class="mt-2 text-3xl font-semibold tracking-tight text-pretty text-ink-900 sm:text-4xl">
+          A plan, not a slide deck
+        </p>
+        <ul role="list" class="mt-10 space-y-4">
+          {
+            review.deliverables.map((item) => (
+              <li class="flex gap-x-3 text-base/7 text-ink-700">
+                <svg class="mt-1 size-5 flex-none text-brand-600 dark:text-brand-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                  <path
+                    fill-rule="evenodd"
+                    d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+                {item}
+              </li>
+            ))
+          }
+        </ul>
+        <p class="mt-8 text-base/7 text-ink-600">
+          The report is yours to keep and act on however you like. Plenty of teams take it and do the work themselves.
+          If you'd like help with some of it, we can talk about that afterwards, but there's no obligation.
+        </p>
+      </div>
+      <div class="rounded-2xl bg-ink-100 p-8 sm:p-10">
+        <h2 class="text-base/7 font-semibold text-ink-900">A good fit if</h2>
+        <ul role="list" class="mt-6 space-y-4">
+          {review.fit.map((item) => <li class="border-l-2 border-accent-400 pl-4 text-base/7 text-ink-700">{item}</li>)}
+        </ul>
+        <p class="mt-8 text-sm/6 text-ink-600">
+          Need something bigger, like a full platform build or a migration? Have a look at our
+          <a href="/services/" class="font-semibold text-brand-700 dark:text-brand-300">other services</a>.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Closing CTA -->
+  <section class="bg-brand-950">
+    <div class="mx-auto max-w-7xl px-6 py-20 sm:py-24 lg:flex lg:items-center lg:justify-between lg:px-8">
+      <div>
+        <h2 class="max-w-2xl text-3xl font-semibold tracking-tight text-white sm:text-4xl">Book a platform review</h2>
+        <p class="mt-4 max-w-xl text-lg/8 text-brand-100/70">
+          Tell us roughly what you run and what's worrying you. We'll reply personally with dates and a fixed price.
+        </p>
+      </div>
+      <div class="mt-10 flex flex-wrap items-center gap-x-6 gap-y-4 lg:mt-0 lg:shrink-0">
+        <a
+          href={enquiry}
+          class="rounded-full bg-accent-400 px-5 py-2.5 text-sm font-semibold text-brand-950 hover:bg-accent-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-400"
+        >
+          Email us about a review
+        </a>
+        <a href="/contact/" class="text-sm/6 font-semibold text-white">Other ways to get in touch <span aria-hidden="true">→</span></a>
+      </div>
+    </div>
+  </section>
+</Base>

@@ -5,6 +5,7 @@ pubDate: 2026-10-24
 heroImage: ../../assets/blog/generated/private-eks-day-2.jpg
 heroAlt: "A padlocked VPC boundary with a cluster inside, and a narrow tunnel reaching in to a laptop outside"
 draft: true
+cta: private-eks
 ---
 
 In [the last post](/blog/bootstrapping-private-eks-argocd/) we built an EKS cluster with no public API endpoint and got
@@ -376,6 +377,3 @@ side, and Pod Identity joined them up without either knowing the other's details
 tunnel with their own identity, rather than a shared key.
 
 Next up: [keeping it upgraded](/blog/eks-upgrades-without-drama/), which on a private cluster needs a bit more thought.
-
-If you'd like help building or reviewing a platform like this, that's what our
-[platform engineering](/services/platform-engineering/) work covers. [Get in touch](/contact/).

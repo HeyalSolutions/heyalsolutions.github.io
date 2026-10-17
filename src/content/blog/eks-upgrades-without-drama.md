@@ -5,6 +5,7 @@ pubDate: 2026-10-31
 heroImage: ../../assets/blog/generated/eks-upgrades.jpg
 heroAlt: "A staircase of version blocks climbing from left to right, with a cluster stepping up onto the next one"
 draft: true
+cta: eks-upgrades
 ---
 
 Kubernetes ships three minor versions a year. EKS supports each one for 14 months, and then for another 12 at six
@@ -222,6 +223,3 @@ The teams that find upgrades painless aren't doing anything clever. They upgrade
 
 An upgrade that happens every few months, follows the same steps, and gets checked by CI isn't a project. It's just
 maintenance.
-
-If your clusters have fallen a few versions behind and you'd like a hand catching up, that's something we do a lot of.
-See [platform engineering](/services/platform-engineering/) or [get in touch](/contact/).

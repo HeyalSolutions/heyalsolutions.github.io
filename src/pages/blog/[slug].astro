@@ -4,6 +4,7 @@ import { getEntry, render } from "astro:content";
 import { Image, getImage } from "astro:assets";
 import Base from "../../layouts/Base.astro";
 import SeriesNav from "../../components/SeriesNav.astro";
+import PostCta from "../../components/PostCta.astro";
 import PostCard from "../../components/PostCard.astro";
 import { site } from "../../data/site";
 import { formatDate, getPosts, readingTime, relatedPosts } from "../../lib/content";
@@ -25,7 +26,7 @@ const index = parts.findIndex((p) => p.id === post.id);
 const previous = index > 0 ? parts[index - 1] : undefined;
 const next = index >= 0 ? parts[index + 1] : undefined;
 const { Content } = await render(post);
-const { title, description, pubDate, updatedDate, heroImage, heroAlt, personal, changes, tags } = post.data;
+const { title, description, pubDate, updatedDate, heroImage, heroAlt, personal, changes, tags, cta } = post.data;
 const service = post.data.service ? await getEntry(post.data.service) : undefined;
 
 const path = `/blog/${post.id}/`;
@@ -72,6 +73,7 @@ const writtenIn = new Intl.DateTimeFormat("en-GB", { month: "long", year: "numer
   published={pubDate}
   modified={updatedDate}
   schema={schema}
+  cta={!cta}
 >
   <article>
     <header class="mx-auto max-w-3xl px-6 pt-16 sm:pt-24 lg:px-8">
@@ -183,8 +185,10 @@ const writtenIn = new Intl.DateTimeFormat("en-GB", { month: "long", year: "numer
       )
     }
 
+    {/* A post-specific call to action wins over the generic related-service box. */}
+    {cta && <PostCta id={cta} />}
     {
-      service && (
+      !cta && service && (
         <aside aria-label="Related service" class="mx-auto max-w-3xl px-6 pb-16 lg:px-8">
           <a
             href={`/services/${service.id}/`}

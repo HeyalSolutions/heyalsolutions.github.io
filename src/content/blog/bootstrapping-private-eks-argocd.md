@@ -6,6 +6,7 @@ heroImage: ../../assets/blog/generated/eks-private-argocd.jpg
 heroAlt: "A dashed, padlocked VPC boundary around a cluster of connected nodes, with a Git branch pulling into it"
 tags: [kubernetes, eks, aws, argo-cd, gitops, terraform, github-actions]
 service: infrastructure-and-delivery
+cta: private-eks
 ---
 
 A Kubernetes API server on the public internet is an attack surface most teams don't need. In regulated environments
@@ -515,6 +516,3 @@ that for a couple of cents. After that, Git is the only way changes reach the cl
 
 The full example, including the IAM policies and the `cluster-resources` chart, is at
 [HeyalSolutions/eks-private-argocd-bootstrap](https://github.com/HeyalSolutions/eks-private-argocd-bootstrap).
-
-If you're building something like this and want a hand, this is the kind of
-[platform engineering](/services/platform-engineering/) we do. [Get in touch](/contact/).

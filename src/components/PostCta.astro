@@ -1,0 +1,27 @@
+---
+import { postCtas, site, type PostCtaId } from "../data/site";
+
+interface Props {
+  id: PostCtaId;
+}
+
+const cta = postCtas[Astro.props.id];
+---
+
+<aside class="mx-auto max-w-3xl px-6 pb-16 lg:px-8" aria-label="Work with us">
+  <div class="rounded-2xl bg-brand-950 p-8 sm:p-10">
+    <h2 class="text-2xl font-semibold tracking-tight text-pretty text-white">{cta.heading}</h2>
+    <p class="mt-3 text-base/7 text-brand-100/70">{cta.body}</p>
+    <div class="mt-8 flex flex-wrap items-center gap-x-6 gap-y-4">
+      <a
+        href={cta.href}
+        class="rounded-full bg-accent-400 px-5 py-2.5 text-sm font-semibold text-brand-950 hover:bg-accent-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-400"
+      >
+        {cta.label}
+      </a>
+      <a href={`mailto:${site.email}`} class="text-sm/6 font-semibold text-white">
+        {site.email} <span aria-hidden="true">→</span>
+      </a>
+    </div>
+  </div>
+</aside>
