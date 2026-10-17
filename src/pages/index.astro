@@ -3,12 +3,13 @@ import Base from "../layouts/Base.astro";
 import Icon from "../components/Icon.astro";
 import ServiceCard from "../components/ServiceCard.astro";
 import CaseStudyCard from "../components/CaseStudyCard.astro";
-import { posts, principles, problems, site } from "../data/site";
-import { getCaseStudies, getServices } from "../lib/content";
+import PostCard from "../components/PostCard.astro";
+import { principles, problems, site } from "../data/site";
+import { getCaseStudies, getPosts, getServices } from "../lib/content";
 
 const services = await getServices();
 const caseStudies = (await getCaseStudies()).slice(0, 2);
-const dateFormat = new Intl.DateTimeFormat("en-GB", { month: "short", year: "numeric" });
+const posts = (await getPosts()).filter((post) => !post.data.personal).slice(0, 3);
 ---
 
 <Base>
@@ -163,23 +164,8 @@ const dateFormat = new Intl.DateTimeFormat("en-GB", { month: "short", year: "num
         </div>
         <a href={site.blog} class="text-sm/6 font-semibold text-brand-700 dark:text-brand-300">Read the blog <span aria-hidden="true">→</span></a>
       </div>
-      <div class="mt-16 grid grid-cols-1 gap-8 lg:grid-cols-3">
-        {
-          posts.map((post) => (
-            <article class="group relative flex flex-col border-t border-ink-200 pt-6">
-              <time datetime={post.date} class="text-sm/6 text-ink-500">
-                {dateFormat.format(new Date(post.date))}
-              </time>
-              <h3 class="mt-2 text-lg/7 font-semibold text-ink-900 group-hover:text-brand-700 dark:group-hover:text-brand-300">
-                <a href={post.href}>
-                  <span class="absolute inset-0" />
-                  {post.title}
-                </a>
-              </h3>
-              <p class="mt-2 text-base/7 text-ink-600">{post.summary}</p>
-            </article>
-          ))
-        }
+      <div class="mt-16 grid grid-cols-1 gap-x-8 gap-y-16 lg:grid-cols-3">
+        {posts.map((post) => <PostCard post={post} />)}
       </div>
     </div>
   </section>

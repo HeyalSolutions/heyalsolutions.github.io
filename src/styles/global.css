@@ -81,3 +81,10 @@ html {
   --tw-prose-quote-borders: var(--color-accent-400);
   --tw-prose-code: var(--color-ink-900);
 }
+
+/* Shiki emits light colours inline and dark ones as --shiki-dark vars. */
+[data-theme="dark"] .astro-code,
+[data-theme="dark"] .astro-code span {
+  color: var(--shiki-dark) !important;
+  background-color: var(--shiki-dark-bg) !important;
+}

@@ -35,4 +35,22 @@ const work = defineCollection({
   }),
 });
 
-export const collections = { services, work };
+const blog = defineCollection({
+  loader: glob({ pattern: "**/[^_]*.md", base: "./src/content/blog" }),
+  schema: ({ image }) =>
+    z.object({
+      title: z.string(),
+      description: z.string(),
+      pubDate: z.coerce.date(),
+      updatedDate: z.coerce.date().optional(),
+      heroImage: image(),
+      heroAlt: z.string().default(""),
+      /** Personal posts are listed on /blog but not featured on the home page. */
+      personal: z.boolean().default(false),
+      /** Post-specific note on what has changed since publication (Markdown not supported). */
+      changes: z.string().optional(),
+      draft: z.boolean().default(false),
+    }),
+});
+
+export const collections = { services, work, blog };
