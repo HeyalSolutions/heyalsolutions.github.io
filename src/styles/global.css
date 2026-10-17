@@ -5,7 +5,8 @@
 @custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
 
 @theme {
-  --font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  /* Self-hosted via the fonts config in astro.config.ts, which also sets the fallbacks. */
+  --font-sans: var(--font-manrope);
 
   /* Deep teal */
   --color-brand-50: #effaf8;

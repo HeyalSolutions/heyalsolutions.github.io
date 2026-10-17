@@ -4,6 +4,8 @@ description: "Terraform for a private-endpoint EKS cluster, GitHub Actions with 
 pubDate: 2026-10-17
 heroImage: ../../assets/blog/generated/eks-private-argocd.jpg
 heroAlt: "A dashed, padlocked VPC boundary around a cluster of connected nodes, with a Git branch pulling into it"
+tags: [kubernetes, eks, aws, argo-cd, gitops, terraform, github-actions]
+service: infrastructure-and-delivery
 ---
 
 A Kubernetes API server on the public internet is an attack surface most teams don't need. In regulated environments

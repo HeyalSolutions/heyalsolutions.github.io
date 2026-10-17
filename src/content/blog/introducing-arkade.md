@@ -3,8 +3,9 @@ title: "Introducing Arkade - The Kubernetes app installer"
 description: "A CLI with strongly-typed flags to install charts and apps to your cluster in one command."
 pubDate: 2020-02-28
 heroImage: ../../assets/blog/arkade-headline.png
-heroAlt: "arkade headline image"
+heroAlt: "The arkade logo"
 changes: "arkade has grown well beyond installing apps (arkade get now downloads dozens of CLI tools), and its app list, flags and defaults have changed. Tiller belonged to Helm 2, which reached end of life in 2020."
+tags: [arkade, kubernetes, helm, open-source]
 ---
 
 ## Arkade! What is it?

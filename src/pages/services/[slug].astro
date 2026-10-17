@@ -4,6 +4,7 @@ import { render } from "astro:content";
 import Base from "../../layouts/Base.astro";
 import PageHeader from "../../components/PageHeader.astro";
 import { getServices } from "../../lib/content";
+import { breadcrumbs, ids } from "../../lib/seo";
 
 export const getStaticPaths = (async () => {
   const services = await getServices();
@@ -15,9 +16,25 @@ export const getStaticPaths = (async () => {
 
 const { service, others } = Astro.props;
 const { Content } = await render(service);
+const path = `/services/${service.id}/`;
+const schema = [
+  {
+    "@type": "Service",
+    name: service.data.title,
+    description: service.data.summary,
+    url: new URL(path, Astro.site).toString(),
+    provider: { "@id": ids.organization },
+    areaServed: { "@type": "Country", name: "United Kingdom" },
+    serviceType: service.data.title,
+  },
+  breadcrumbs([
+    { name: "Services", path: "/services/" },
+    { name: service.data.title, path },
+  ]),
+];
 ---
 
-<Base title={service.data.title} description={service.data.summary}>
+<Base title={service.data.title} description={service.data.summary} schema={schema}>
   <PageHeader eyebrow="Services" title={service.data.title} lead={service.data.summary}>
     <ul role="list" class="mt-8 flex flex-wrap gap-2">
       {

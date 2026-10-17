@@ -1,10 +1,11 @@
 ---
-title: "Docker Birmingham January 2020"
-description: "Building docker images for multiple CPU Architectures"
+title: "Docker Birmingham January 2020: Multi-Architecture Images with buildx"
+description: "From my Docker Birmingham meetup talk: how Docker images and manifests handle CPU architectures, and building images for ARM and x86 with docker buildx."
 pubDate: 2020-01-08
 heroImage: ../../assets/blog/pi.jpg
-heroAlt: "Raspberry Pi computer"
+heroAlt: "A Raspberry Pi single-board computer"
 changes: "buildx has since become a standard part of Docker and multi-platform builds no longer need experimental features, so the setup described here is simpler today."
+tags: [docker, multi-arch, raspberry-pi, community]
 ---
 
 Every two months a group of us host a meetup focused on Docker. You can find [the meetup page here](https://www.meetup.com/Docker-Birmingham/).
