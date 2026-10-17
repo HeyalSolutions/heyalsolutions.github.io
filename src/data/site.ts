@@ -50,8 +50,8 @@ export const problems: { title: string; body: string }[] = [
 export const principles: { title: string; body: string; icon: IconName }[] = [
   {
     icon: "rocket",
-    title: "Senior engineers only",
-    body: "Our work is done by experienced engineers and overseen by our founder. We don't staff projects with juniors learning on the job.",
+    title: "Experienced engineers, every time",
+    body: "Our work is led by experienced engineers and overseen by our founder. We pair with engineers at every level of your team, so their skills grow alongside the platform.",
   },
   {
     icon: "code",
