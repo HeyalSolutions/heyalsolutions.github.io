@@ -3,8 +3,8 @@ title: "My Home Office Build, Part 1: Groundwork"
 description: "Planning a garden office, running power and network cables, and pouring the concrete base."
 pubDate: 2022-06-30
 updatedDate: 2026-10-17
-heroImage: ../../assets/blog/office/headline.jpg
-heroAlt: "Home office lit from above and the side"
+heroImage: ../../assets/blog/office/trench.jpg
+heroAlt: "Trench dug for the power and network cables"
 personal: true
 series:
   id: office-build
