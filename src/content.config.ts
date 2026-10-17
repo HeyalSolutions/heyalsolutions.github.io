@@ -43,7 +43,7 @@ const blog = defineCollection({
       description: z.string(),
       pubDate: z.coerce.date(),
       updatedDate: z.coerce.date().optional(),
-      heroImage: image(),
+      heroImage: image().optional(),
       heroAlt: z.string().default(""),
       /** Personal posts are listed on /blog but not featured on the home page. */
       personal: z.boolean().default(false),

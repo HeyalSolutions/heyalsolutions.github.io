@@ -88,3 +88,10 @@ html {
   color: var(--shiki-dark) !important;
   background-color: var(--shiki-dark-bg) !important;
 }
+
+/* Wide Markdown tables scroll sideways on small screens instead of widening the page. */
+.prose table {
+  display: block;
+  max-width: 100%;
+  overflow-x: auto;
+}

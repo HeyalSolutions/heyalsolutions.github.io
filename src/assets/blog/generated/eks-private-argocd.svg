@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="800" viewBox="0 0 1600 800">
+  <defs>
+    <pattern id="grid" width="64" height="64" patternUnits="userSpaceOnUse">
+      <path d="M64 0H0V64" fill="none" stroke="#ffffff" stroke-opacity="0.05" stroke-width="1.5"/>
+    </pattern>
+    <radialGradient id="teal" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#2e9488" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#2e9488" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="amber" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#f5a65b" stop-opacity="0.28"/>
+      <stop offset="1" stop-color="#f5a65b" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="fade" x1="0" x2="1">
+      <stop offset="0" stop-color="#7ccdc1" stop-opacity="0"/>
+      <stop offset="1" stop-color="#7ccdc1" stop-opacity="0.9"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1600" height="800" fill="#0a2523"/>
+  <rect width="1600" height="800" fill="url(#grid)"/>
+  <circle cx="1060" cy="380" r="560" fill="url(#teal)"/>
+  <circle cx="300" cy="640" r="420" fill="url(#amber)"/>
+
+  <!-- VPC boundary -->
+  <rect x="600" y="150" width="820" height="500" rx="36" fill="#0a2523" fill-opacity="0.35"
+        stroke="#f5a65b" stroke-opacity="0.85" stroke-width="3" stroke-dasharray="18 12"/>
+
+  <!-- Connections between nodes -->
+  <g stroke="#7ccdc1" stroke-opacity="0.55" stroke-width="3" fill="none">
+    <path d="M780 300L960 240M960 240L1150 300M780 300L870 470M960 240L1010 400M1150 300L1010 400M870 470L1010 400M1010 400L1180 500M1150 300L1270 420M1270 420L1180 500M870 470L1020 560M1020 560L1180 500"/>
+  </g>
+
+  <!-- Nodes (hexagons) -->
+  <g fill="#123b38" stroke="#7ccdc1" stroke-width="3">
+    <path d="M780 266l29.4 17v34l-29.4 17-29.4-17v-34z"/>
+    <path d="M960 206l29.4 17v34l-29.4 17-29.4-17v-34z"/>
+    <path d="M1150 266l29.4 17v34l-29.4 17-29.4-17v-34z"/>
+    <path d="M870 436l29.4 17v34l-29.4 17-29.4-17v-34z"/>
+    <path d="M1270 386l29.4 17v34l-29.4 17-29.4-17v-34z"/>
+    <path d="M1180 466l29.4 17v34l-29.4 17-29.4-17v-34z"/>
+    <path d="M1020 526l29.4 17v34l-29.4 17-29.4-17v-34z"/>
+  </g>
+
+  <!-- Control plane at the centre -->
+  <path d="M1010 340l52 30v60l-52 30-52-30v-60z" fill="#1f5f59" stroke="#aee3da" stroke-width="4"/>
+  <circle cx="1010" cy="400" r="14" fill="#aee3da"/>
+
+  <!-- Outside traffic stopped at the boundary -->
+  <path d="M190 400H560" stroke="url(#fade)" stroke-width="4" stroke-dasharray="4 14" stroke-linecap="round"/>
+  <g transform="translate(600 400)">
+    <circle r="46" fill="#0a2523" stroke="#f5a65b" stroke-width="4"/>
+    <rect x="-18" y="-4" width="36" height="28" rx="5" fill="#f5a65b"/>
+    <path d="M-11 -4v-10a11 11 0 0 1 22 0v10" fill="none" stroke="#f5a65b" stroke-width="5"/>
+  </g>
+
+  <!-- Git pulling in from below -->
+  <g stroke="#f8c48a" stroke-width="4" fill="none" stroke-linecap="round">
+    <path d="M330 690V560"/>
+    <path d="M330 610c0-40 60-40 60-80"/>
+  </g>
+  <g fill="#0a2523" stroke="#f8c48a" stroke-width="4">
+    <circle cx="330" cy="700" r="14"/>
+    <circle cx="330" cy="550" r="14"/>
+    <circle cx="390" cy="520" r="14"/>
+  </g>
+  <path d="M420 560C620 640 820 640 990 580" stroke="#f8c48a" stroke-opacity="0.6" stroke-width="3" stroke-dasharray="10 10" fill="none"/>
+</svg>
