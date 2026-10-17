@@ -21,7 +21,7 @@ tools:
   - Observability
 ---
 
-Sometimes the most valuable thing is an outside pair of eyes. Our platform reviews are short, fixed-scope engagements. We look at how your platform is built and run, talk to the engineers who use it, and give you a prioritised list of what to fix first and why.
+Sometimes the most valuable thing is an outside pair of eyes. Our platform reviews are short, fixed-scope engagements. We look at how your platform is built and run, talk to the engineers who use it, and give you a prioritised list of what to fix first and why. [See how a platform review works](/platform-review/).
 
 ## Training that uses your systems
 

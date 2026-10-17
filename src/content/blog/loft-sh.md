@@ -5,6 +5,7 @@ pubDate: 2022-03-15
 heroImage: ../../assets/blog/loft.jpg
 heroAlt: "Container in the sky"
 changes: "Loft has since refocused on vCluster (loft.sh now redirects to vcluster.com), so the product, Helm chart, CLI and docs referenced here have changed. Flux's documentation has also moved to fluxcd.io/flux."
+cta: platform
 ---
 
 ## The problem

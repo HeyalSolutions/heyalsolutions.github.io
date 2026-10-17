@@ -1,6 +1,7 @@
 import { defineCollection, reference } from "astro:content";
 import { glob } from "astro/loaders";
 import { z } from "astro/zod";
+import { postCtas, type PostCtaId } from "./data/site";
 
 const iconNames = ["code", "chat", "cloud", "heart", "cube", "rocket", "academic", "search"] as const;
 
@@ -51,6 +52,8 @@ const blog = defineCollection({
       series: z.object({ id: z.string(), title: z.string(), part: z.number().int().positive() }).optional(),
       /** Post-specific note on what has changed since publication (Markdown not supported). */
       changes: z.string().optional(),
+      /** Call-to-action shown at the end of the post, in place of the generic banner. Ids from postCtas in data/site. */
+      cta: z.enum(Object.keys(postCtas) as [PostCtaId, ...PostCtaId[]]).optional(),
       draft: z.boolean().default(false),
     }),
 });

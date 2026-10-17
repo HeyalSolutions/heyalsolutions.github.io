@@ -5,6 +5,7 @@ pubDate: 2021-01-23
 heroImage: ../../assets/blog/helm.jpg
 heroAlt: "A ship's wheel silhouetted against a sunset"
 changes: "The networking.k8s.io/v1beta1 Ingress API used in the example was removed in Kubernetes 1.22 (use networking.k8s.io/v1), the Helm Go APIs have moved on, and the OpenFaaS Cloud repository linked below is now archived. The helm-unittest plugin is a popular alternative to the approach shown here."
+cta: delivery
 ---
 
 Learn how to write Golang unit tests for your Helm charts to keep quality high and make changes with confidence.

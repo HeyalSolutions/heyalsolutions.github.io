@@ -5,6 +5,7 @@ pubDate: 2026-11-07
 heroImage: ../../assets/blog/generated/platform-audit.jpg
 heroAlt: "A magnifying glass over a grid of cluster nodes, with a few highlighted in amber"
 draft: true
+cta: platform-review
 ---
 
 A lot of our work starts the same way. A team has a Kubernetes platform that works, mostly, but it's slower, more
@@ -177,6 +178,3 @@ Git, test rebuilding one too. That's often the fastest disaster recovery plan th
 Most of these come from the same place. The platform was built quickly, it worked, and the team moved on to the next
 thing. Nobody had time to go back. None of the fixes above need a rewrite, and most of them are a few days' work each.
 The hard part is making the time.
-
-If you'd like someone to go through your platform and tell you which of these apply, and which to fix first, that's
-exactly what our [platform reviews](/services/reviews-and-training/) cover. [Get in touch](/contact/).

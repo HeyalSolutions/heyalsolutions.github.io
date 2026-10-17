@@ -1,6 +1,6 @@
 ---
 import Logo from "./Logo.astro";
-import { site } from "../data/site";
+import { review, site } from "../data/site";
 import { getServices } from "../lib/content";
 
 const services = await getServices();
@@ -9,7 +9,10 @@ const year = new Date().getFullYear();
 const columns: { heading: string; links: { label: string; href: string }[] }[] = [
   {
     heading: "Services",
-    links: services.map((s) => ({ label: s.data.title, href: `/services/${s.id}/` })),
+    links: [
+      ...services.map((s) => ({ label: s.data.title, href: `/services/${s.id}/` })),
+      { label: review.name, href: review.href },
+    ],
   },
   {
     heading: "Company",

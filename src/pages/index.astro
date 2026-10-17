@@ -2,6 +2,7 @@
 import Base from "../layouts/Base.astro";
 import Icon from "../components/Icon.astro";
 import ServiceCard from "../components/ServiceCard.astro";
+import ReviewBanner from "../components/ReviewBanner.astro";
 import CaseStudyCard from "../components/CaseStudyCard.astro";
 import PostCard from "../components/PostCard.astro";
 import { principles, problems, site } from "../data/site";
@@ -90,6 +91,9 @@ const posts = (await getPosts()).filter((post) => !post.data.personal).slice(0, 
       </div>
       <div class="mt-16 grid grid-cols-1 gap-6 sm:grid-cols-2">
         {services.map((service) => <ServiceCard service={service} />)}
+      </div>
+      <div class="mt-6">
+        <ReviewBanner />
       </div>
     </div>
   </section>
