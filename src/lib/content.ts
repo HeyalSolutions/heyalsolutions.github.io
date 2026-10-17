@@ -14,7 +14,11 @@ export async function getCaseStudies() {
 /** Newest first. Drafts are visible in `astro dev` and excluded from production builds. */
 export async function getPosts() {
   const posts = await getCollection("blog", ({ data }) => import.meta.env.DEV || !data.draft);
-  return posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+  // Newest first; parts of a series published on the same day list in reverse part order.
+  return posts.sort(
+    (a, b) =>
+      b.data.pubDate.valueOf() - a.data.pubDate.valueOf() || (b.data.series?.part ?? 0) - (a.data.series?.part ?? 0),
+  );
 }
 
 export function readingTime(markdown: string | undefined): number {

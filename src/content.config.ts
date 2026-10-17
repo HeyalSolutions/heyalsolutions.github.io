@@ -47,6 +47,8 @@ const blog = defineCollection({
       heroAlt: z.string().default(""),
       /** Personal posts are listed on /blog but not featured on the home page. */
       personal: z.boolean().default(false),
+      /** Groups multi-part posts; parts are linked to each other on the post page. */
+      series: z.object({ id: z.string(), title: z.string(), part: z.number().int().positive() }).optional(),
       /** Post-specific note on what has changed since publication (Markdown not supported). */
       changes: z.string().optional(),
       draft: z.boolean().default(false),
