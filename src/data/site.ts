@@ -132,7 +132,7 @@ export const review = {
   href: "/platform-review/",
   duration: "Two weeks",
   /** Shown as the price when set, e.g. "From £6,000 + VAT". Leave undefined to say it's agreed up front. */
-  price: undefined as string | undefined,
+  price: "From £10,000 + VAT" as string | undefined,
   pitch:
     "Two weeks, a fixed price, and a written report ranking what to fix in your Kubernetes, Terraform and pipelines, and in what order.",
   areas: [
