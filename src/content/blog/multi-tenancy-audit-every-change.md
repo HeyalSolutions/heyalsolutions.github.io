@@ -11,7 +11,6 @@ series:
   title: "Multi-tenancy by construction"
   part: 12
 cta: multi-tenancy
-draft: true
 ---
 
 A customer asks who deleted a document last Thursday. If the answer is "let me check the logs", you don't have an

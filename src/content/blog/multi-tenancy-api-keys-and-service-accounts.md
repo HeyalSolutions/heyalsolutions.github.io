@@ -11,7 +11,6 @@ series:
   title: "Multi-tenancy by construction"
   part: 10
 cta: multi-tenancy
-draft: true
 ---
 
 Everything so far assumed a person behind a browser: an access token from the identity provider and a tenant from

@@ -4,7 +4,6 @@ description: "Why EKS upgrades keep sneaking up on teams, the order to do them i
 pubDate: 2026-10-31
 heroImage: ../../assets/blog/generated/eks-upgrades.jpg
 heroAlt: "A staircase of version blocks climbing from left to right, with a cluster stepping up onto the next one"
-draft: true
 cta: eks-upgrades
 ---
 

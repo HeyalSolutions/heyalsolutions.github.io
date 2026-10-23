@@ -4,7 +4,6 @@ description: "Load balancers, DNS and secrets with Pod Identity and Argo CD, plu
 pubDate: 2026-10-24
 heroImage: ../../assets/blog/generated/private-eks-day-2.jpg
 heroAlt: "A padlocked VPC boundary with a cluster inside, and a narrow tunnel reaching in to a laptop outside"
-draft: true
 cta: private-eks
 ---
 

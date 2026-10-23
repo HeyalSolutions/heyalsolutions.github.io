@@ -11,7 +11,6 @@ series:
   title: "Multi-tenancy by construction"
   part: 11
 cta: multi-tenancy
-draft: true
 ---
 
 Isolation is a security property, so it gets its own test layer. Unit tests check that a feature works. The

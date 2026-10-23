@@ -8,7 +8,6 @@ category: leadership
 tags: [multi-tenancy, saas, architecture, cost]
 service: platform-engineering
 cta: multi-tenancy
-draft: true
 ---
 
 Early in the life of a B2B product, someone makes a decision that shapes the next five years: does every customer

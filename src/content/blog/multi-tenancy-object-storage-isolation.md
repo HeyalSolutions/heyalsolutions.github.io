@@ -11,7 +11,6 @@ series:
   title: "Multi-tenancy by construction"
   part: 9
 cta: multi-tenancy
-draft: true
 ---
 
 Row-Level Security covers the database. Uploads live somewhere else, and the usual advice for isolating them is

@@ -7,7 +7,6 @@ heroAlt: "A two-week timeline from a conversation, through a sketched process, t
 category: business
 tags: [custom-apps, small-business, how-we-work]
 cta: custom-apps
-draft: true
 ---
 
 People who've never commissioned software tend to expect one of two things: months of silence followed by a big

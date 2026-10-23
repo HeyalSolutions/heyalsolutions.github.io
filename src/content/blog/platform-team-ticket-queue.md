@@ -8,7 +8,6 @@ category: leadership
 tags: [platform-engineering, delivery, devops]
 service: platform-engineering
 cta: platform
-draft: true
 ---
 
 Most platform teams start as the people who know how the infrastructure works. Over time, without anyone deciding

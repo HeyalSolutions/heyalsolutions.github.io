@@ -11,7 +11,6 @@ series:
   title: "Multi-tenancy by construction"
   part: 3
 cta: multi-tenancy
-draft: true
 ---
 
 [Part 2](/blog/multi-tenancy-row-level-security/) put Row-Level Security on every tenant-owned table. The word doing the

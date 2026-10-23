@@ -8,7 +8,6 @@ category: leadership
 tags: [multi-tenancy, saas, security, build-vs-buy]
 service: platform-engineering
 cta: multi-tenancy
-draft: true
 ---
 
 Before a B2B product does anything useful, it needs the same set of things every other B2B product needs: customer

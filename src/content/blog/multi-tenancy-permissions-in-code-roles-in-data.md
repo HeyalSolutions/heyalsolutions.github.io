@@ -11,7 +11,6 @@ series:
   title: "Multi-tenancy by construction"
   part: 6
 cta: multi-tenancy
-draft: true
 ---
 
 Most products start with `if (user.role === 'admin')` scattered through the codebase. It works until the first

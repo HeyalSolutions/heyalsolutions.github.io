@@ -8,7 +8,6 @@ category: leadership
 tags: [eks, aws, cost, kubernetes]
 service: reviews-and-training
 cta: platform-review
-draft: true
 ---
 
 If your engineers run Kubernetes on AWS, there's a date attached to every cluster. Fourteen months after a Kubernetes

@@ -11,7 +11,6 @@ series:
   title: "Multi-tenancy by construction"
   part: 4
 cta: multi-tenancy
-draft: true
 ---
 
 The database now enforces isolation given a tenant in context. The next question is where that tenant comes from,

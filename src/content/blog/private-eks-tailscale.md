@@ -4,7 +4,6 @@ description: "When SSM tunnels and AWS roles for everyone stop scaling: kubectl 
 pubDate: 2026-11-14
 heroImage: ../../assets/blog/generated/private-eks-tailscale.jpg
 heroAlt: "Several laptops outside a padlocked VPC boundary, each joined to the cluster inside by its own line through a single gateway"
-draft: true
 cta: private-eks
 ---
 

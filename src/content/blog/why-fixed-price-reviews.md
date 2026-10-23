@@ -8,7 +8,6 @@ category: leadership
 tags: [how-we-work, platform-review, pricing]
 service: reviews-and-training
 cta: platform-review
-draft: true
 ---
 
 Most consulting is sold by the day. It's flexible, it's easy to start, and it puts all the risk on you: if the work

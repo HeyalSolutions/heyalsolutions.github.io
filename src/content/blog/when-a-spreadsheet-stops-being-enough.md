@@ -7,7 +7,6 @@ heroAlt: "A spreadsheet grid straining at the edges, with a simple form and a ti
 category: business
 tags: [custom-apps, small-business, process]
 cta: custom-apps
-draft: true
 ---
 
 Every business we've worked with runs part of itself on a spreadsheet. Bookings, quotes, stock, job sheets, who's

@@ -11,7 +11,6 @@ series:
   title: "Multi-tenancy by construction"
   part: 8
 cta: multi-tenancy
-draft: true
 ---
 
 This is the one post in the series that describes a bug we designed in, found in a review, and designed back out.

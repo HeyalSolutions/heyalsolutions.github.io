@@ -7,7 +7,6 @@ heroAlt: "Three stacked blocks of increasing size labelled with a simple form, c
 category: business
 tags: [custom-apps, small-business, cost]
 cta: custom-apps
-draft: true
 ---
 
 "How much does an app cost?" is a fair question with a frustrating answer: it depends. This post is an attempt at a

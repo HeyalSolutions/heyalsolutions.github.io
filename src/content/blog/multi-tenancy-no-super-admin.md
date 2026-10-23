@@ -11,7 +11,6 @@ series:
   title: "Multi-tenancy by construction"
   part: 7
 cta: multi-tenancy
-draft: true
 ---
 
 Every SaaS team eventually gives support staff a way to see a customer's account. The usual answer is a
