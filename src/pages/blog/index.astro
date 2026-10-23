@@ -5,13 +5,20 @@ import PostCard from "../../components/PostCard.astro";
 import { getPosts } from "../../lib/content";
 
 const posts = await getPosts();
+
+const categories = [
+  { id: "all", label: "Everything" },
+  { id: "engineering", label: "Engineering" },
+  { id: "leadership", label: "Engineering leaders" },
+  { id: "business", label: "Business" },
+] as const;
 ---
 
 <Base title="Blog" description="Practical writing on Kubernetes, EKS, GitOps, Terraform and platform engineering from the Heyal Solutions team, based on real client work.">
   <PageHeader
     eyebrow="Blog"
     title="Notes from the platform"
-    lead="Writing on Kubernetes, GitOps, serverless and open source, from the work we do and the projects we contribute to."
+    lead="Hands-on writing on Kubernetes, GitOps and platform engineering, the business case behind it for the people who decide, and plain-English notes on the apps we build for businesses that aren't software companies."
   >
     <a href="/blog/rss.xml" class="mt-8 inline-flex items-center gap-x-2 text-sm/6 font-semibold text-brand-700 dark:text-brand-300">
       <svg class="size-4" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
@@ -22,8 +29,43 @@ const posts = await getPosts();
     </a>
   </PageHeader>
   <section class="py-20 sm:py-24">
-    <div class="mx-auto grid max-w-7xl grid-cols-1 gap-x-8 gap-y-16 px-6 sm:grid-cols-2 lg:grid-cols-3 lg:px-8">
-      {posts.map((post) => <PostCard post={post} />)}
+    <div class="mx-auto max-w-7xl px-6 lg:px-8">
+      <div class="mb-12 flex flex-wrap gap-2" role="group" aria-label="Filter posts">
+        {
+          categories.map((category) => (
+            <button
+              type="button"
+              data-filter={category.id}
+              aria-pressed={category.id === "all"}
+              class="rounded-full px-4 py-1.5 text-sm/6 font-semibold text-ink-600 ring-1 ring-ink-200 transition hover:text-ink-900 aria-pressed:bg-brand-700 aria-pressed:text-white aria-pressed:ring-brand-700 dark:aria-pressed:bg-brand-300 dark:aria-pressed:text-brand-950"
+            >
+              {category.label}
+            </button>
+          ))
+        }
+      </div>
+      <div class="grid grid-cols-1 gap-x-8 gap-y-16 sm:grid-cols-2 lg:grid-cols-3">
+        {
+          posts.map((post) => (
+            <div data-category={post.data.category}>
+              <PostCard post={post} />
+            </div>
+          ))
+        }
+      </div>
     </div>
   </section>
+
+  <script>
+    const buttons = document.querySelectorAll<HTMLButtonElement>("[data-filter]");
+    const cards = document.querySelectorAll<HTMLElement>("[data-category]");
+    const apply = (filter: string) => {
+      buttons.forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.filter === filter)));
+      cards.forEach((c) => c.toggleAttribute("hidden", filter !== "all" && c.dataset.category !== filter));
+      history.replaceState(null, "", filter === "all" ? location.pathname : `#${filter}`);
+    };
+    buttons.forEach((b) => b.addEventListener("click", () => apply(b.dataset.filter!)));
+    const initial = location.hash.slice(1);
+    if ([...buttons].some((b) => b.dataset.filter === initial)) apply(initial);
+  </script>
 </Base>

@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="800" viewBox="0 0 1600 800">
+  <defs>
+    <pattern id="grid" width="64" height="64" patternUnits="userSpaceOnUse">
+      <path d="M64 0H0V64" fill="none" stroke="#ffffff" stroke-opacity="0.05" stroke-width="1.5"/>
+    </pattern>
+    <radialGradient id="teal" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#2e9488" stop-opacity="0.55"/><stop offset="1" stop-color="#2e9488" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="amber" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#f5a65b" stop-opacity="0.28"/><stop offset="1" stop-color="#f5a65b" stop-opacity="0"/>
+    </radialGradient>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0 0L10 5L0 10z" fill="#7ccdc1" fill-opacity="0.8"/>
+    </marker>
+    <marker id="arrowA" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0 0L10 5L0 10z" fill="#f5a65b"/>
+    </marker>
+  </defs>
+
+  <rect width="1600" height="800" fill="#0a2523"/>
+  <rect width="1600" height="800" fill="url(#grid)"/>
+  <circle cx="500" cy="400" r="560" fill="url(#teal)"/>
+  <circle cx="1300" cy="450" r="400" fill="url(#amber)"/>
+    <g stroke="#7ccdc1" stroke-opacity="0.5" stroke-width="2" fill="none">
+      <path d="M180 200v380"/><path d="M270 200v380"/><path d="M360 200v380"/><path d="M450 200v380"/><path d="M540 200v380"/><path d="M630 200v380"/><path d="M720 200v380"/>
+      <path d="M180 200h540"/><path d="M180 254h540"/><path d="M180 308h540"/><path d="M180 362h540"/><path d="M180 416h540"/><path d="M180 470h540"/><path d="M180 524h540"/><path d="M180 578h540"/>
+    </g>
+    <rect x="274" y="312" width="82" height="46" fill="#f5a65b" fill-opacity="0.35"/><rect x="454" y="420" width="82" height="46" fill="#f5a65b" fill-opacity="0.35"/><rect x="364" y="528" width="82" height="46" fill="#f5a65b" fill-opacity="0.35"/><rect x="634" y="258" width="82" height="46" fill="#f5a65b" fill-opacity="0.35"/><rect x="184" y="366" width="82" height="46" fill="#f5a65b" fill-opacity="0.35"/>
+    <text x="450" y="640" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="28" fill="#7ccdc1" text-anchor="middle">the spreadsheet</text>
+    <path d="M780 400L900 400" stroke="#7ccdc1" stroke-opacity="0.6" stroke-width="5" stroke-linecap="round" fill="none" marker-end="url(#arrow)"/>
+    <rect x="940" y="220" width="440" height="360" rx="16" fill="#123b38" stroke="#7ccdc1" stroke-opacity="0.7" stroke-width="3"/>
+    <rect x="980" y="270" width="360" height="56" rx="10" fill="#7ccdc1" fill-opacity="0.2" stroke="#7ccdc1" stroke-opacity="0.6" stroke-width="2"/><rect x="980" y="360" width="360" height="56" rx="10" fill="#7ccdc1" fill-opacity="0.2" stroke="#7ccdc1" stroke-opacity="0.6" stroke-width="2"/><rect x="980" y="450" width="360" height="56" rx="10" fill="#7ccdc1" fill-opacity="0.2" stroke="#7ccdc1" stroke-opacity="0.6" stroke-width="2"/>
+    <text x="1160" y="640" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="28" fill="#7ccdc1" text-anchor="middle">one form, asked once</text>
+</svg>

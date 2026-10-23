@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="800" viewBox="0 0 1600 800">
+  <defs>
+    <pattern id="grid" width="64" height="64" patternUnits="userSpaceOnUse">
+      <path d="M64 0H0V64" fill="none" stroke="#ffffff" stroke-opacity="0.05" stroke-width="1.5"/>
+    </pattern>
+    <radialGradient id="teal" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#2e9488" stop-opacity="0.55"/><stop offset="1" stop-color="#2e9488" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="amber" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#f5a65b" stop-opacity="0.28"/><stop offset="1" stop-color="#f5a65b" stop-opacity="0"/>
+    </radialGradient>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0 0L10 5L0 10z" fill="#7ccdc1" fill-opacity="0.8"/>
+    </marker>
+    <marker id="arrowA" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0 0L10 5L0 10z" fill="#f5a65b"/>
+    </marker>
+  </defs>
+
+  <rect width="1600" height="800" fill="#0a2523"/>
+  <rect width="1600" height="800" fill="url(#grid)"/>
+  <circle cx="700" cy="400" r="560" fill="url(#teal)"/>
+  <circle cx="1300" cy="300" r="400" fill="url(#amber)"/>
+    <rect x="380" y="180" width="240" height="110" rx="16" fill="#123b38" stroke="#7ccdc1" stroke-opacity="0.7" stroke-width="3"/>
+    <rect x="300" y="320" width="400" height="110" rx="16" fill="#123b38" stroke="#7ccdc1" stroke-opacity="0.7" stroke-width="3"/>
+    <rect x="200" y="460" width="600" height="110" rx="16" fill="#3a2a12" stroke="#f5a65b" stroke-opacity="1" stroke-width="3"/>
+    <text x="900" y="245" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="30" fill="#7ccdc1" text-anchor="start">one process, a few screens</text>
+    <text x="900" y="385" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="30" fill="#7ccdc1" text-anchor="start">connected to what you already use</text>
+    <text x="900" y="525" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="30" fill="#f5a65b" text-anchor="start">a system several teams rely on</text>
+    <text x="500" y="650" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="26" fill="#7ccdc1" text-anchor="middle">the first version should be the top block</text>
+</svg>

@@ -238,6 +238,12 @@ export const postCtas = {
     label: "See our platform engineering work",
     href: "/services/platform-engineering/",
   },
+  "custom-apps": {
+    heading: "Got a process that runs on spreadsheets and chasing?",
+    body: "We build small, custom apps for businesses that aren't software companies: the booking, the job sheet, the approval, the report. Built around how you actually work, and yours to keep.",
+    label: "Tell us about the process",
+    href: "/contact/",
+  },
   "multi-tenancy": {
     heading: "Building a multi-tenant product?",
     body: "We design and build the tenancy, isolation and platform foundations B2B SaaS products run on, from Postgres Row-Level Security to GitOps, and leave them in your repositories.",

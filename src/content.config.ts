@@ -48,6 +48,11 @@ const blog = defineCollection({
       heroAlt: z.string().default(""),
       /** Personal posts are listed on /blog but not featured on the home page. */
       personal: z.boolean().default(false),
+      /**
+       * Who the post is for; used to filter /blog. "engineering" is hands-on technical writing, "leadership" is
+       * for the people deciding what engineering works on, "business" is for companies that aren't software businesses.
+       */
+      category: z.enum(["engineering", "leadership", "business"]).default("engineering"),
       /** Topics used to pick related posts and as schema.org keywords. Lowercase, e.g. "eks", "gitops". */
       tags: z.array(z.string()).default([]),
       /** The service this post relates to; linked from the end of the post. */
