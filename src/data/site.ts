@@ -238,6 +238,12 @@ export const postCtas = {
     label: "See our platform engineering work",
     href: "/services/platform-engineering/",
   },
+  "multi-tenancy": {
+    heading: "Building a multi-tenant product?",
+    body: "We design and build the tenancy, isolation and platform foundations B2B SaaS products run on, from Postgres Row-Level Security to GitOps, and leave them in your repositories.",
+    label: "See our platform engineering work",
+    href: "/services/platform-engineering/",
+  },
 } as const satisfies Record<string, PostCta>;
 
 export type PostCtaId = keyof typeof postCtas;
