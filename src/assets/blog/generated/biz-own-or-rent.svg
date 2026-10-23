@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="800" viewBox="0 0 1600 800">
+  <defs>
+    <pattern id="grid" width="64" height="64" patternUnits="userSpaceOnUse">
+      <path d="M64 0H0V64" fill="none" stroke="#ffffff" stroke-opacity="0.05" stroke-width="1.5"/>
+    </pattern>
+    <radialGradient id="teal" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#2e9488" stop-opacity="0.55"/><stop offset="1" stop-color="#2e9488" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="amber" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#f5a65b" stop-opacity="0.28"/><stop offset="1" stop-color="#f5a65b" stop-opacity="0"/>
+    </radialGradient>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0 0L10 5L0 10z" fill="#7ccdc1" fill-opacity="0.8"/>
+    </marker>
+    <marker id="arrowA" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0 0L10 5L0 10z" fill="#f5a65b"/>
+    </marker>
+  </defs>
+
+  <rect width="1600" height="800" fill="#0a2523"/>
+  <rect width="1600" height="800" fill="url(#grid)"/>
+  <circle cx="500" cy="400" r="560" fill="url(#teal)"/>
+  <circle cx="1300" cy="500" r="400" fill="url(#amber)"/>
+    <g transform="translate(380 400)">
+      <path d="M-160 -40L0 -170L160 -40V160H-160z" fill="#3a2a12" stroke="#f5a65b" stroke-opacity="1" stroke-width="4"/>
+    </g><g transform="translate(1020 400)">
+      <path d="M-160 -40L0 -170L160 -40V160H-160z" fill="#123b38" stroke="#7ccdc1" stroke-opacity="0.7" stroke-width="4"/>
+    </g>
+    
+  <g transform="translate(330 440)" fill="none" stroke="#f5a65b" stroke-width="6" stroke-linecap="round">
+    <circle cx="0" cy="0" r="30" fill="#3a2a12"/>
+    <path d="M30 0h150M140 0v26M110 0v20"/>
+  </g>
+    <g transform="translate(960 300)">
+      <rect x="0" y="0" width="120" height="110" rx="10" fill="none" stroke="#7ccdc1" stroke-width="4"/>
+      <path d="M0 30h120M30 -15v30M90 -15v30" stroke="#7ccdc1" stroke-width="4"/>
+      <text x="60" y="85" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="28" fill="#7ccdc1" text-anchor="middle">£/mo</text>
+    </g>
+    <text x="380" y="640" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="32" fill="#f5a65b" text-anchor="middle">own it</text><text x="1020" y="640" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="32" fill="#7ccdc1" text-anchor="middle">rent it</text>
+</svg>

@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="800" viewBox="0 0 1600 800">
+  <defs>
+    <pattern id="grid" width="64" height="64" patternUnits="userSpaceOnUse">
+      <path d="M64 0H0V64" fill="none" stroke="#ffffff" stroke-opacity="0.05" stroke-width="1.5"/>
+    </pattern>
+    <radialGradient id="teal" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#2e9488" stop-opacity="0.55"/><stop offset="1" stop-color="#2e9488" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="amber" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#f5a65b" stop-opacity="0.28"/><stop offset="1" stop-color="#f5a65b" stop-opacity="0"/>
+    </radialGradient>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0 0L10 5L0 10z" fill="#7ccdc1" fill-opacity="0.8"/>
+    </marker>
+    <marker id="arrowA" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0 0L10 5L0 10z" fill="#f5a65b"/>
+    </marker>
+  </defs>
+
+  <rect width="1600" height="800" fill="#0a2523"/>
+  <rect width="1600" height="800" fill="url(#grid)"/>
+  <circle cx="600" cy="400" r="560" fill="url(#teal)"/>
+  <circle cx="1300" cy="300" r="400" fill="url(#amber)"/>
+    <path d="M240 640L1360 640" stroke="#7ccdc1" stroke-opacity="0.6" stroke-width="5" stroke-linecap="round" fill="none" />
+    <rect x="280" y="560" width="100" height="80" rx="10" fill="#7ccdc1" fill-opacity="0.45" stroke="#7ccdc1" stroke-width="3"/><rect x="430" y="560" width="100" height="80" rx="10" fill="#7ccdc1" fill-opacity="0.45" stroke="#7ccdc1" stroke-width="3"/><rect x="580" y="560" width="100" height="80" rx="10" fill="#7ccdc1" fill-opacity="0.45" stroke="#7ccdc1" stroke-width="3"/><rect x="730" y="560" width="100" height="80" rx="10" fill="#7ccdc1" fill-opacity="0.45" stroke="#7ccdc1" stroke-width="3"/><rect x="880" y="200" width="100" height="440" rx="10" fill="#f5a65b" fill-opacity="0.6" stroke="#f5a65b" stroke-width="3"/><rect x="1030" y="200" width="100" height="440" rx="10" fill="#f5a65b" fill-opacity="0.6" stroke="#f5a65b" stroke-width="3"/><rect x="1180" y="200" width="100" height="440" rx="10" fill="#f5a65b" fill-opacity="0.6" stroke="#f5a65b" stroke-width="3"/>
+    <path d="M855 150v510" stroke="#f5a65b" stroke-opacity="0.6" stroke-width="3" stroke-dasharray="12 12"/>
+    <text x="1110" y="180" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="30" fill="#f5a65b" text-anchor="middle">extended support</text>
+    <text x="500" y="520" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="28" fill="#7ccdc1" text-anchor="middle">$73 / month</text>
+    <text x="1110" y="160" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#7ccdc1" text-anchor="middle"></text>
+    <text x="1110" y="700" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="28" fill="#f5a65b" text-anchor="middle">$438 / month</text>
+</svg>
