@@ -11,7 +11,6 @@ series:
   title: "Multi-tenancy by construction"
   part: 5
 cta: multi-tenancy
-draft: true
 ---
 
 A person signs in once. They might belong to three customer organisations with a different role in each: owner of

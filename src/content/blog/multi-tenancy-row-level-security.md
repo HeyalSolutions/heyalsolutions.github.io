@@ -11,7 +11,6 @@ series:
   title: "Multi-tenancy by construction"
   part: 2
 cta: multi-tenancy
-draft: true
 ---
 
 In [Part 1](/blog/multi-tenancy-shared-tables-or-database-per-tenant/) we chose shared tables with a `tenant_id` column.

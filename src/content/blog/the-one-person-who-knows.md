@@ -7,7 +7,6 @@ heroAlt: "One person at the centre of many connecting lines, with a shared scree
 category: business
 tags: [custom-apps, small-business, process, risk]
 cta: custom-apps
-draft: true
 ---
 
 There's usually one. The office manager who knows which customers pay late, which jobs need the big van and which

@@ -11,7 +11,6 @@ series:
   title: "Multi-tenancy by construction"
   part: 1
 cta: multi-tenancy
-draft: true
 ---
 
 Every B2B product serves many customer organisations from one deployment. The first decision you make about how is

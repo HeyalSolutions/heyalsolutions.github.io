@@ -8,7 +8,6 @@ category: leadership
 tags: [platform-review, kubernetes, terraform, cost]
 service: reviews-and-training
 cta: platform-review
-draft: true
 ---
 
 A platform review is a short, fixed-price look at how your cloud infrastructure, Kubernetes and delivery pipelines

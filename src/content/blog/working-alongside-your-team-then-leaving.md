@@ -8,7 +8,6 @@ category: leadership
 tags: [how-we-work, platform-engineering, training]
 service: reviews-and-training
 cta: platform
-draft: true
 ---
 
 The best outcome of a consulting engagement is that you don't need the consultants any more. That sounds obvious,
