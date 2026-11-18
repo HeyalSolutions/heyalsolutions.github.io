@@ -6,9 +6,11 @@ import Base from "../../layouts/Base.astro";
 import SeriesNav from "../../components/SeriesNav.astro";
 import PostCta from "../../components/PostCta.astro";
 import PostCard from "../../components/PostCard.astro";
-import { site } from "../../data/site";
+import { author, site } from "../../data/site";
 import { formatDate, getPosts, readingTime, relatedPosts } from "../../lib/content";
 import { breadcrumbs, founder, ids } from "../../lib/seo";
+import AuthorAvatar from "../../components/AuthorAvatar.astro";
+import AuthorBox from "../../components/AuthorBox.astro";
 
 export const getStaticPaths = (async () => {
   const posts = await getPosts();
@@ -83,7 +85,10 @@ const writtenIn = new Intl.DateTimeFormat("en-GB", { month: "long", year: "numer
       <h1 class="mt-6 text-4xl font-semibold tracking-tight text-pretty text-ink-900 sm:text-5xl">{title}</h1>
       <p class="mt-6 text-lg/8 text-ink-600">{description}</p>
       <div class="mt-6 flex flex-wrap items-center gap-x-3 text-sm/6 text-ink-500">
-        <span class="font-medium text-ink-900">{site.founder}</span>
+        <a href={author.href} class="flex items-center gap-x-3 font-medium text-ink-900 hover:text-brand-700 dark:hover:text-brand-300">
+          <AuthorAvatar size={36} />
+          <span>{author.name}</span>
+        </a>
         <span aria-hidden="true">·</span>
         <time datetime={pubDate.toISOString()}>{formatDate(pubDate)}</time>
         {
@@ -156,6 +161,8 @@ const writtenIn = new Intl.DateTimeFormat("en-GB", { month: "long", year: "numer
     >
       <Content />
     </div>
+
+    <AuthorBox />
 
     {
       (previous || next) && (
