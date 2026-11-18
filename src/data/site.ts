@@ -17,6 +17,21 @@ export const site = {
   linkedin: "https://www.linkedin.com/in/alistair-hey/",
 } as const;
 
+/**
+ * The person who writes the blog. Shown in each post's byline and in the "About the author" box at the end.
+ * To show a photo, add a square image at src/assets/author.jpg (at least 256 × 256); until then the byline shows initials.
+ */
+export const author = {
+  name: site.founder,
+  initials: "AH",
+  role: "Founder and platform engineer",
+  href: "/about/#founder",
+  bio: [
+    "Alistair is a platform engineer and the founder of Heyal Solutions. He designs, builds and runs Kubernetes platforms, and has contributed to open source projects such as OpenFaaS and arkade.",
+    "He writes every post here himself, about things he has built and run, including the multi-tenant platform and the homelab behind several of them.",
+  ],
+} as const;
+
 export interface NavLink {
   label: string;
   href: string;

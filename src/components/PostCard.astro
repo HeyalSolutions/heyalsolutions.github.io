@@ -2,6 +2,7 @@
 import type { CollectionEntry } from "astro:content";
 import { Image } from "astro:assets";
 import { formatDate, readingTime } from "../lib/content";
+import { author } from "../data/site";
 
 interface Props {
   post: CollectionEntry<"blog">;
@@ -33,7 +34,9 @@ const { post } = Astro.props;
       )
     }
   </div>
-  <div class="mt-5 flex items-center gap-x-3 text-sm/6 text-ink-500">
+  <div class="mt-5 flex flex-wrap items-center gap-x-3 text-sm/6 text-ink-500">
+    <span class="font-medium text-ink-700">{author.name}</span>
+    <span aria-hidden="true">·</span>
     <time datetime={post.data.pubDate.toISOString()}>{formatDate(post.data.pubDate)}</time>
     <span aria-hidden="true">·</span>
     <span>{readingTime(post.body)} min read</span>
