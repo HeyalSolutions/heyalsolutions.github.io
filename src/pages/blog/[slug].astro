@@ -82,7 +82,7 @@ const writtenIn = new Intl.DateTimeFormat("en-GB", { month: "long", year: "numer
       <a href="/blog/" class="text-sm/6 font-semibold text-brand-700 dark:text-brand-300"
         ><span aria-hidden="true">←</span> All posts</a
       >
-      <h1 class="mt-6 text-4xl font-semibold tracking-tight text-pretty text-ink-900 sm:text-5xl">{title}</h1>
+      <h1 class="mt-6 text-4xl font-extrabold tracking-[-0.04em] text-pretty text-ink-900 sm:text-6xl/[0.95]">{title}</h1>
       <p class="mt-6 text-lg/8 text-ink-600">{description}</p>
       <div class="mt-6 flex flex-wrap items-center gap-x-3 text-sm/6 text-ink-500">
         <a href={author.href} class="flex items-center gap-x-3 font-medium text-ink-900 hover:text-brand-700 dark:hover:text-brand-300">
@@ -199,13 +199,13 @@ const writtenIn = new Intl.DateTimeFormat("en-GB", { month: "long", year: "numer
         <aside aria-label="Related service" class="mx-auto max-w-3xl px-6 pb-16 lg:px-8">
           <a
             href={`/services/${service.id}/`}
-            class="group block rounded-2xl bg-brand-950 p-8 text-white ring-1 ring-brand-900 hover:ring-brand-500"
+            class="group block rounded-[2rem] bg-brand-900 dark:bg-ink-100 p-8 text-white ring-1 ring-brand-900 hover:ring-brand-500"
           >
             <span class="text-sm/6 font-semibold text-accent-400">Need a hand with this?</span>
             <span class="mt-2 block text-xl font-semibold tracking-tight">{service.data.title}</span>
             <span class="mt-2 block text-base/7 text-brand-100/70">{service.data.summary}</span>
             <span class="mt-4 inline-block text-sm/6 font-semibold">
-              How we help <span aria-hidden="true">→</span>
+              How we help
             </span>
           </a>
         </aside>

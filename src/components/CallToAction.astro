@@ -1,25 +1,27 @@
 ---
+import Flatline from "./Flatline.astro";
 import { site } from "../data/site";
 ---
 
-<section class="bg-brand-950">
-  <div class="mx-auto max-w-7xl px-6 py-20 sm:py-24 lg:flex lg:items-center lg:justify-between lg:px-8">
-    <div>
-      <h2 class="max-w-2xl text-3xl font-semibold tracking-tight text-white sm:text-4xl">Got a platform problem?</h2>
-      <p class="mt-4 max-w-xl text-lg/8 text-brand-100/70">
+<section class="bg-brand-900 text-ink-50 dark:bg-ink-100 dark:text-ink-900">
+  <div class="mx-auto max-w-7xl px-6 py-20 sm:py-28 lg:px-8">
+    <Flatline variant="rule" class="text-current" />
+    <h2 class="mt-8 max-w-3xl text-5xl font-extrabold tracking-[-0.045em] sm:text-7xl/[0.95]">Fancy a boring week?</h2>
+    <div class="mt-8 flex flex-col gap-10 lg:flex-row lg:items-end lg:justify-between">
+      <p class="max-w-xl text-lg/8 opacity-80">
         Tell us what you're running and where it hurts. We'll tell you honestly whether we can help.
       </p>
-    </div>
-    <div class="mt-10 flex flex-wrap items-center gap-x-6 gap-y-4 lg:mt-0 lg:shrink-0">
-      <a
-        href="/contact/"
-        class="rounded-full bg-accent-400 px-5 py-2.5 text-sm font-semibold text-brand-950 hover:bg-accent-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-400"
-      >
-        Start a conversation
-      </a>
-      <a href={`mailto:${site.email}`} class="text-sm/6 font-semibold text-white">
-        {site.email} <span aria-hidden="true">→</span>
-      </a>
+      <div class="flex flex-wrap items-center gap-x-8 gap-y-4">
+        <a
+          href="/contact/"
+          class="rounded-full bg-accent-400 px-6 py-3.5 text-base font-bold text-brand-950 hover:bg-accent-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-400"
+        >
+          Start a conversation
+        </a>
+        <a href={`mailto:${site.email}`} class="text-base font-semibold underline decoration-accent-400 decoration-2 underline-offset-4">
+          {site.email}
+        </a>
+      </div>
     </div>
   </div>
 </section>

@@ -90,9 +90,10 @@ const shareImageUrl = new URL(shareImage.src, Astro.site);
     <meta name="twitter:image" content={shareImageUrl} />
     <meta name="twitter:image:alt" content={imageAlt} />
     <script is:inline type="application/ld+json" set:html={JSON.stringify(graph(organization, website, ...schema))} />
-    <Font cssVariable="--font-manrope" preload />
+    <Font cssVariable="--font-figtree" preload />
+    <Font cssVariable="--font-bricolage" preload />
   </head>
-  <body class="text-ink-900 selection:bg-accent-300 dark:selection:bg-accent-500/40">
+  <body class="text-ink-900 selection:bg-accent-300 selection:text-brand-950">
     <a
       href="#main"
       class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:rounded-md focus:bg-surface focus:px-4 focus:py-2"

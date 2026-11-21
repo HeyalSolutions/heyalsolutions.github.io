@@ -1,0 +1,41 @@
+---
+interface Props {
+  /** "hero" starts with spikes and settles; "rule" is a short flat line with a dot, used as a divider. */
+  variant?: "hero" | "rule";
+  class?: string;
+}
+
+const { variant = "hero", class: className = "" } = Astro.props;
+
+// Spiky "before" section, then flat for good. Drawn in a 1280 x 150 box.
+const heroPath =
+  "M0 110 L40 70 L60 120 L90 30 L110 100 L140 60 L160 125 L190 20 L215 95 L240 50 L265 115 L290 40 L320 100 L345 70 L370 118 L400 45 L425 95 L455 75 L480 110 L505 60 L530 100 L560 85 L590 108 L620 95 L650 112 L700 108 L760 113 L1280 113";
+---
+
+{
+  variant === "hero" ? (
+    <figure class:list={["text-ink-900", className]}>
+      <figcaption class="mx-auto flex max-w-7xl justify-between px-6 pb-2 text-sm text-ink-500 lg:px-8">
+        <span>Pages to on-call, per week</span>
+        <span>The week we started</span>
+      </figcaption>
+      <svg viewBox="0 0 1280 150" preserveAspectRatio="none" class="block h-24 w-full sm:h-36" fill="none" aria-hidden="true">
+        <path
+          d={heroPath}
+          pathLength="1"
+          class="flatline-draw"
+          stroke="currentColor"
+          stroke-width="4"
+          stroke-linejoin="round"
+          vector-effect="non-scaling-stroke"
+        />
+        <path d="M560 0 L560 150" stroke="var(--color-accent-400)" stroke-width="3" vector-effect="non-scaling-stroke" />
+      </svg>
+    </figure>
+  ) : (
+    <svg viewBox="0 0 200 12" class:list={["block h-3 w-40", className]} fill="none" aria-hidden="true">
+      <path d="M0 6 L188 6" stroke="currentColor" stroke-width="3" />
+      <circle cx="192" cy="6" r="5" fill="var(--color-accent-400)" />
+    </svg>
+  )
+}

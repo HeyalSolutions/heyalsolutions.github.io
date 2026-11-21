@@ -12,7 +12,7 @@ const { post } = Astro.props;
 ---
 
 <article class="group relative flex flex-col">
-  <div class="aspect-[16/9] overflow-hidden rounded-2xl bg-ink-100 ring-1 ring-ink-200">
+  <div class="aspect-[16/9] overflow-hidden rounded-2xl bg-ink-100">
     {
       post.data.heroImage ? (
         <Image
@@ -23,13 +23,12 @@ const { post } = Astro.props;
           class="size-full object-cover transition duration-300 group-hover:scale-[1.02]"
         />
       ) : (
-        <div class="relative flex size-full items-end overflow-hidden bg-brand-950 p-6">
-          <div
-            class="absolute inset-0 bg-[linear-gradient(to_right,rgb(255_255_255/0.06)_1px,transparent_1px),linear-gradient(to_bottom,rgb(255_255_255/0.06)_1px,transparent_1px)] bg-[size:2rem_2rem]"
-            aria-hidden="true"
-          />
-          <div class="absolute -top-16 -right-16 size-48 rounded-full bg-accent-400/30 blur-3xl" aria-hidden="true" />
-          <p class="relative font-mono text-sm text-brand-100/80">{post.data.title}</p>
+        <div class="flex size-full flex-col justify-between bg-brand-900 p-6 text-[#e8eee3]">
+          <p class="font-display text-xl/6 font-bold tracking-[-0.03em] text-balance">{post.data.title}</p>
+          <svg viewBox="0 0 200 24" class="h-5 w-full" fill="none" aria-hidden="true">
+            <path d="M0 16 L10 6 L18 20 L26 4 L34 18 L42 14 L50 17 L194 17" stroke="currentColor" stroke-width="2" stroke-linejoin="round" />
+            <circle cx="194" cy="17" r="4" fill="var(--color-accent-400)" />
+          </svg>
         </div>
       )
     }
@@ -41,7 +40,7 @@ const { post } = Astro.props;
     <span aria-hidden="true">·</span>
     <span>{readingTime(post.body)} min read</span>
   </div>
-  <h3 class="mt-2 text-lg/7 font-semibold text-ink-900 group-hover:text-brand-700 dark:group-hover:text-brand-300">
+  <h3 class="mt-2 text-xl/7 font-bold tracking-[-0.025em] text-ink-900 decoration-accent-400 decoration-2 underline-offset-4 group-hover:underline">
     <a href={`/blog/${post.id}/`}>
       <span class="absolute inset-0"></span>
       {post.data.title}

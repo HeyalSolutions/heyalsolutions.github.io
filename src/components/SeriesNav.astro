@@ -12,7 +12,7 @@ const series = current.data.series!;
 const shortTitle = (title: string) => title.replace(/^.*?Part \d+:\s*/, "");
 ---
 
-<nav aria-label={`${series.title} series`} class="rounded-2xl bg-surface p-6 ring-1 ring-ink-200">
+<nav aria-label={`${series.title} series`} class="rounded-2xl bg-surface p-6">
   <p class="text-sm/6 font-semibold text-ink-900">
     {series.title} <span class="font-normal text-ink-500">· Part {series.part} of {parts.length}</span>
   </p>
@@ -22,7 +22,7 @@ const shortTitle = (title: string) => title.replace(/^.*?Part \d+:\s*/, "");
         const isCurrent = part.id === current.id;
         return (
           <li class="flex gap-x-3 text-sm/6">
-            <span class="w-4 flex-none font-mono text-accent-500">{part.data.series!.part}</span>
+            <span class="w-4 flex-none font-display font-bold text-accent-500">{part.data.series!.part}</span>
             {isCurrent ? (
               <span aria-current="page" class="font-semibold text-ink-900">
                 {shortTitle(part.data.title)}

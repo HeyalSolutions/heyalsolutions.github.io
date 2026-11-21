@@ -1,4 +1,6 @@
 ---
+import Flatline from "./Flatline.astro";
+
 interface Props {
   eyebrow: string;
   title: string;
@@ -8,16 +10,16 @@ interface Props {
 const { eyebrow, title, lead } = Astro.props;
 ---
 
-<div class="relative isolate overflow-hidden border-b border-ink-200">
-  <div
-    class="absolute inset-0 -z-10 bg-[linear-gradient(to_right,var(--color-ink-200)_1px,transparent_1px),linear-gradient(to_bottom,var(--color-ink-200)_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_80%_at_20%_0%,#000_30%,transparent_100%)]"
-    aria-hidden="true"
-  >
-  </div>
-  <div class="mx-auto max-w-7xl px-6 py-20 sm:py-28 lg:px-8">
-    <p class="text-base/7 font-semibold text-brand-600 dark:text-brand-400">{eyebrow}</p>
-    <h1 class="mt-2 max-w-3xl text-4xl font-semibold tracking-tight text-pretty text-ink-900 sm:text-6xl">{title}</h1>
-    {lead && <p class="mt-6 max-w-2xl text-lg/8 text-pretty text-ink-600">{lead}</p>}
+<div class="border-b-[3px] border-ink-900">
+  <div class="mx-auto max-w-7xl px-6 pt-16 pb-16 sm:pt-24 sm:pb-20 lg:px-8">
+    <p class="flex items-center gap-4 text-base/7 font-medium text-ink-500">
+      <Flatline variant="rule" class="w-16 text-ink-900" />
+      {eyebrow}
+    </p>
+    <h1 class="mt-6 max-w-4xl text-5xl font-extrabold tracking-[-0.045em] text-balance text-ink-900 sm:text-7xl/[0.95]">
+      {title}
+    </h1>
+    {lead && <p class="mt-8 max-w-2xl text-xl/8 text-pretty text-ink-700">{lead}</p>}
     <slot />
   </div>
 </div>

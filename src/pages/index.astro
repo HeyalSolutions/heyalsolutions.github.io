@@ -1,11 +1,11 @@
 ---
 import Base from "../layouts/Base.astro";
-import Icon from "../components/Icon.astro";
+import Flatline from "../components/Flatline.astro";
 import ServiceCard from "../components/ServiceCard.astro";
 import ReviewBanner from "../components/ReviewBanner.astro";
 import CaseStudyCard from "../components/CaseStudyCard.astro";
 import PostCard from "../components/PostCard.astro";
-import { principles, problems, site } from "../data/site";
+import { principles, problems, review, site } from "../data/site";
 import { getCaseStudies, getPosts, getServices } from "../lib/content";
 import { founder } from "../lib/seo";
 
@@ -16,138 +16,113 @@ const posts = (await getPosts()).filter((post) => !post.data.personal).slice(0, 
 
 <Base schema={[founder]}>
   <!-- Hero -->
-  <section class="relative isolate overflow-hidden">
-    <div class="absolute inset-0 -z-10" aria-hidden="true">
-      <div
-        class="absolute inset-0 bg-[linear-gradient(to_right,var(--color-ink-200)_1px,transparent_1px),linear-gradient(to_bottom,var(--color-ink-200)_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_70%_60%_at_50%_40%,#000_40%,transparent_100%)]"
-      >
-      </div>
-      <div class="absolute top-10 left-1/2 size-[36rem] -translate-x-[70%] rounded-full bg-brand-300/30 dark:bg-brand-600/20 blur-3xl"></div>
-      <div class="absolute top-36 left-1/2 size-[28rem] translate-x-[5%] rounded-full bg-accent-300/30 dark:bg-accent-500/10 blur-3xl"></div>
-    </div>
-    <div class="mx-auto max-w-4xl px-6 py-28 text-center sm:py-40 lg:px-8">
-      <p
-        class="inline-flex rounded-full bg-surface/60 px-3 py-1 text-sm/6 font-medium text-ink-600 ring-1 ring-ink-900/10 backdrop-blur"
-      >
-        Cloud native platform consultancy
-      </p>
-      <h1 class="mt-8 text-5xl font-semibold tracking-tight text-balance text-ink-900 sm:text-7xl">
-        Make shipping software boring
+  <section class="overflow-hidden">
+    <div class="mx-auto max-w-7xl px-6 pt-14 sm:pt-20 lg:px-8">
+      <h1 class="text-[clamp(4rem,15vw,11.5rem)]/[0.86] font-extrabold tracking-[-0.055em] text-ink-900">
+        Nothing<br />happened.
       </h1>
-      <p class="mx-auto mt-8 max-w-2xl text-lg font-medium text-pretty text-ink-600 sm:text-xl/8">
-        We design, build and fix the platforms your engineers ship on, covering Kubernetes, infrastructure as code and
-        delivery pipelines. Senior, hands-on help that leaves your team in charge.
-      </p>
-      <div class="mt-10 flex flex-wrap items-center justify-center gap-x-6 gap-y-4">
-        <a
-          href="/contact/"
-          class="rounded-full bg-brand-700 px-5 py-2.5 text-sm font-semibold text-white shadow-xs hover:bg-brand-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-700"
-        >
-          Talk to us
-        </a>
-        <a href="/services/" class="text-sm/6 font-semibold text-ink-900">
-          See what we do <span aria-hidden="true">→</span>
-        </a>
+      <div class="mt-8 grid gap-10 lg:grid-cols-2 lg:items-end">
+        <p class="max-w-xl text-xl/8 text-pretty text-ink-800 sm:text-2xl/9">
+          That's the job. We make shipping software boring by designing, building and fixing the platforms your
+          engineers ship on.
+        </p>
+        <div class="flex flex-wrap items-center gap-x-8 gap-y-4 lg:justify-end">
+          <a
+            href={review.href}
+            class="rounded-full bg-accent-400 px-7 py-4 text-lg font-bold text-brand-950 hover:bg-accent-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink-900"
+          >
+            Book a platform review
+          </a>
+          <a href="/services/" class="text-lg font-semibold text-ink-900 underline decoration-2 underline-offset-[6px]">
+            See what we do
+          </a>
+        </div>
       </div>
     </div>
+    <Flatline class="mt-12 sm:mt-16" />
   </section>
 
   <!-- Problems -->
-  <section class="border-y border-ink-200 bg-surface py-24 sm:py-32">
-    <div class="mx-auto max-w-7xl px-6 lg:px-8">
-      <div class="max-w-2xl">
-        <h2 class="text-base/7 font-semibold text-brand-600 dark:text-brand-400">Sound familiar?</h2>
-        <p class="mt-2 text-4xl font-semibold tracking-tight text-pretty text-ink-900 sm:text-5xl">
-          The platform should speed you up, not hold you back
+  <section class="bg-brand-900 py-20 text-[#e8eee3] sm:py-28 dark:bg-ink-100">
+    <div class="mx-auto grid max-w-7xl gap-12 px-6 lg:grid-cols-[22rem_1fr] lg:gap-16 lg:px-8">
+      <div>
+        <h2 class="text-5xl/[0.95] font-extrabold tracking-[-0.045em] sm:text-6xl/[0.95]">Things that will stop happening</h2>
+        <p class="mt-6 text-lg/8 opacity-80">
+          These are fixable problems, and none of them needs a big-bang rewrite.
         </p>
       </div>
-      <dl class="mt-16 grid grid-cols-1 gap-x-12 gap-y-10 sm:grid-cols-2">
+      <ul role="list">
         {
           problems.map((p) => (
-            <div class="border-l-2 border-accent-400 pl-6">
-              <dt class="text-lg/7 font-semibold text-ink-900">{p.title}</dt>
-              <dd class="mt-2 text-base/7 text-ink-600">{p.body}</dd>
-            </div>
+            <li class="border-b border-[#e8eee3]/20 py-6 first:pt-0">
+              <p class="font-display text-2xl font-bold tracking-[-0.025em] line-through decoration-accent-400 decoration-[3px] sm:text-3xl">
+                {p.title}
+              </p>
+              <p class="mt-2 max-w-2xl text-lg/7 opacity-80">{p.body}</p>
+            </li>
           ))
         }
-      </dl>
-      <p class="mt-16 max-w-2xl text-lg/8 text-ink-600">
-        These are fixable problems, and none of them needs a big-bang rewrite. Getting teams from here to dependable,
-        self-service delivery is what we do.
-      </p>
+      </ul>
     </div>
   </section>
 
   <!-- Services -->
-  <section class="py-24 sm:py-32">
+  <section class="py-20 sm:py-28">
     <div class="mx-auto max-w-7xl px-6 lg:px-8">
       <div class="flex flex-wrap items-end justify-between gap-6">
-        <div class="max-w-2xl">
-          <h2 class="text-base/7 font-semibold text-brand-600 dark:text-brand-400">Services</h2>
-          <p class="mt-2 text-4xl font-semibold tracking-tight text-pretty text-ink-900 sm:text-5xl">
-            How we can help
-          </p>
-        </div>
-        <a href="/services/" class="text-sm/6 font-semibold text-brand-700 dark:text-brand-300">All services <span aria-hidden="true">→</span></a>
+        <h2 class="max-w-3xl text-5xl/[0.92] font-extrabold tracking-[-0.045em] text-ink-900 sm:text-7xl/[0.92]">
+          Four ways to make it boring
+        </h2>
+        <a href="/services/" class="text-lg font-semibold text-ink-900 underline decoration-accent-400 decoration-2 underline-offset-4">All services</a>
       </div>
-      <div class="mt-16 grid grid-cols-1 gap-6 sm:grid-cols-2">
+      <div class="mt-14 grid grid-cols-1 gap-x-12 gap-y-8 sm:grid-cols-2">
         {services.map((service) => <ServiceCard service={service} />)}
       </div>
-      <div class="mt-6">
+      <div class="mt-12">
         <ReviewBanner />
       </div>
     </div>
   </section>
 
   <!-- Principles -->
-  <section class="bg-brand-950 py-24 sm:py-32">
-    <div class="mx-auto max-w-7xl px-6 lg:px-8">
-      <div class="max-w-2xl">
-        <h2 class="text-base/7 font-semibold text-accent-400">Why work with us</h2>
-        <p class="mt-2 text-4xl font-semibold tracking-tight text-pretty text-white sm:text-5xl">
-          Small on purpose
-        </p>
-        <p class="mt-6 text-lg/8 text-brand-100/70">
+  <section class="border-t-[3px] border-ink-900 py-20 sm:py-28">
+    <div class="mx-auto grid max-w-7xl gap-12 px-6 lg:grid-cols-[22rem_1fr] lg:gap-16 lg:px-8">
+      <div>
+        <h2 class="text-5xl/[0.95] font-extrabold tracking-[-0.045em] text-ink-900 sm:text-6xl/[0.95]">Small on purpose</h2>
+        <p class="mt-6 text-lg/8 text-ink-700">
           {site.name} is led by {site.founder}, a cloud native platform engineer, and works with a small network of trusted
           senior associates. You get experienced people without the overhead of a big consultancy.
         </p>
+        <a href="/how-we-work/" class="mt-6 inline-block text-lg font-semibold text-ink-900 underline decoration-accent-400 decoration-2 underline-offset-4">
+          How engagements work
+        </a>
       </div>
-      <dl class="mt-16 grid grid-cols-1 gap-8 lg:grid-cols-3">
+      <dl class="grid grid-cols-1 gap-x-10 gap-y-10 sm:grid-cols-3">
         {
           principles.map((item) => (
-            <div class="rounded-2xl bg-white/[0.04] p-8 ring-1 ring-white/10">
-              <dt class="text-base/7 font-semibold text-white">
-                <Icon name={item.icon} class="mb-6 size-7 text-accent-400" />
-                {item.title}
-              </dt>
-              <dd class="mt-2 text-base/7 text-brand-100/70">{item.body}</dd>
+            <div>
+              <Flatline variant="rule" class="w-20 text-ink-900" />
+              <dt class="mt-5 font-display text-2xl/7 font-bold tracking-[-0.025em] text-ink-900">{item.title}</dt>
+              <dd class="mt-3 text-base/7 text-ink-700">{item.body}</dd>
             </div>
           ))
         }
       </dl>
-      <a href="/how-we-work/" class="mt-12 inline-block text-sm/6 font-semibold text-white">
-        How engagements work <span aria-hidden="true">→</span>
-      </a>
     </div>
   </section>
 
   <!-- Case studies (only rendered once at least one is published) -->
   {
     caseStudies.length > 0 && (
-      <section class="py-24 sm:py-32">
+      <section class="border-t-[3px] border-ink-900 py-20 sm:py-28">
         <div class="mx-auto max-w-7xl px-6 lg:px-8">
           <div class="flex flex-wrap items-end justify-between gap-6">
-            <div class="max-w-2xl">
-              <h2 class="text-base/7 font-semibold text-brand-600 dark:text-brand-400">Our work</h2>
-              <p class="mt-2 text-4xl font-semibold tracking-tight text-pretty text-ink-900 sm:text-5xl">
-                Recent projects
-              </p>
-            </div>
-            <a href="/work/" class="text-sm/6 font-semibold text-brand-700 dark:text-brand-300">
-              All case studies <span aria-hidden="true">→</span>
+            <h2 class="text-5xl/[0.95] font-extrabold tracking-[-0.045em] text-ink-900 sm:text-6xl/[0.95]">Recent work</h2>
+            <a href="/work/" class="text-lg font-semibold text-ink-900 underline decoration-accent-400 decoration-2 underline-offset-4">
+              All case studies
             </a>
           </div>
-          <div class="mt-16 grid grid-cols-1 gap-6 lg:grid-cols-2">
+          <div class="mt-14 grid grid-cols-1 gap-x-12 gap-y-8 lg:grid-cols-2">
             {caseStudies.map((study) => (
               <CaseStudyCard study={study} />
             ))}
@@ -158,18 +133,13 @@ const posts = (await getPosts()).filter((post) => !post.data.personal).slice(0, 
   }
 
   <!-- Writing -->
-  <section class="border-t border-ink-200 py-24 sm:py-32">
+  <section class="border-t-[3px] border-ink-900 py-20 sm:py-28">
     <div class="mx-auto max-w-7xl px-6 lg:px-8">
       <div class="flex flex-wrap items-end justify-between gap-6">
-        <div class="max-w-2xl">
-          <h2 class="text-base/7 font-semibold text-brand-600 dark:text-brand-400">From the blog</h2>
-          <p class="mt-2 text-4xl font-semibold tracking-tight text-pretty text-ink-900 sm:text-5xl">
-            We write about what we build
-          </p>
-        </div>
-        <a href={site.blog} class="text-sm/6 font-semibold text-brand-700 dark:text-brand-300">Read the blog <span aria-hidden="true">→</span></a>
+        <h2 class="text-5xl/[0.95] font-extrabold tracking-[-0.045em] text-ink-900 sm:text-6xl/[0.95]">We write about what we build</h2>
+        <a href={site.blog} class="text-lg font-semibold text-ink-900 underline decoration-accent-400 decoration-2 underline-offset-4">Read the blog</a>
       </div>
-      <div class="mt-16 grid grid-cols-1 gap-x-8 gap-y-16 lg:grid-cols-3">
+      <div class="mt-14 grid grid-cols-1 gap-x-8 gap-y-16 lg:grid-cols-3">
         {posts.map((post) => <PostCard post={post} />)}
       </div>
     </div>

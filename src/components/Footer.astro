@@ -33,26 +33,26 @@ const columns: { heading: string; links: { label: string; href: string }[] }[] =
 ];
 ---
 
-<footer class="border-t border-ink-200 bg-ink-50">
+<footer class="bg-ink-50">
   <div class="mx-auto max-w-7xl px-6 pt-16 pb-10 lg:px-8">
     <div class="grid gap-12 lg:grid-cols-5">
       <div class="lg:col-span-2">
         <Logo />
-        <p class="mt-4 max-w-xs text-sm/6 text-ink-600">
-          Cloud native platform consultancy. Kubernetes, infrastructure as code and delivery pipelines.
+        <p class="mt-4 max-w-xs text-base/7 text-ink-700">
+          We make shipping software boring. Kubernetes, infrastructure as code and delivery pipelines.
         </p>
-        <a href={`mailto:${site.email}`} class="mt-4 inline-block text-sm/6 font-semibold text-brand-700 dark:text-brand-300 hover:text-brand-600 dark:hover:text-brand-200"
+        <a href={`mailto:${site.email}`} class="mt-4 inline-block text-base font-semibold text-ink-900 underline decoration-accent-400 decoration-2 underline-offset-4"
           >{site.email}</a
         >
       </div>
       {
         columns.map((col) => (
           <div>
-            <h3 class="text-sm/6 font-semibold text-ink-900">{col.heading}</h3>
+            <h3 class="text-base font-bold text-ink-900">{col.heading}</h3>
             <ul role="list" class="mt-4 space-y-3">
               {col.links.map((link) => (
                 <li>
-                  <a href={link.href} class="text-sm/6 text-ink-600 hover:text-ink-900">
+                  <a href={link.href} class="text-[15px]/6 text-ink-700 hover:text-ink-900 hover:underline decoration-accent-400 decoration-2 underline-offset-4">
                     {link.label}
                   </a>
                 </li>
@@ -62,9 +62,8 @@ const columns: { heading: string; links: { label: string; href: string }[] }[] =
         ))
       }
     </div>
-    <p class="mt-16 border-t border-ink-200 pt-8 text-xs/5 text-ink-500">
-      &copy; {year}
-      {site.legalName}. Registered in England &amp; Wales, company number {site.companyNumber}. Registered address: {
+    <p class="mt-16 border-t-[3px] border-ink-900 pt-8 text-sm/6 text-ink-500">
+      &copy; {year} {site.legalName}. Registered in England &amp; Wales, company number {site.companyNumber}. Registered address: {
         site.registeredAddress
       }.
     </p>
