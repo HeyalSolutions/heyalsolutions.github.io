@@ -8,6 +8,10 @@ category: leadership
 tags: [ai, engineering-process, pull-requests, delivery]
 service: infrastructure-and-delivery
 cta: delivery
+series:
+  id: delivery-after-ai
+  title: Delivery after AI
+  part: 1
 ---
 
 I've started to feel uneasy in a very specific situation: watching a team spend longer talking about a change than it would take to make it.
