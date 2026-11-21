@@ -38,7 +38,7 @@ So AI hasn't removed the need for care. It has moved the bottleneck from writing
 
 ## Where to draw the line
 
-The most useful test I know is the one-way door versus two-way door distinction. The question isn't how big a change is. It's how easy it is to walk back.
+The most useful test I know is Amazon's distinction between one-way and two-way doors. The question isn't how big a change is. It's how easy it is to walk back.
 
 | Two-way doors: build first | One-way doors: agree first |
 | --- | --- |
@@ -54,8 +54,8 @@ For one-way doors, slowing down is still the right call, however quickly the cod
 
 For two-way doors, I think the default should flip from "agree, then build" to "build, then agree". In practice that looks like this:
 
-1. **Make the PR the proposal.** Instead of writing a ticket describing a change, open a pull request containing it. People can react to something real.
-2. **Keep it small.** A diff someone can review in five minutes gets a decision in five minutes.
+1. **Make the PR the proposal.** Instead of writing a ticket describing a change, open a pull request containing it. People can react to something real. The description says why the change exists, so the reason outlives the person who made it, and the PR is where someone can still say "not now".
+2. **Keep it small.** A diff someone can review in five minutes gets a decision in five minutes. Because the change was cheap to make, closing it should be cheap too. If "no" isn't a normal outcome, you've just moved the queue from tickets to pull requests.
 3. **Ship it dark.** Put anything with user impact behind a flag, so merging and releasing are separate decisions.
 4. **Bring the way back.** Include a rollback plan, even if it's one line. It turns "what if this goes wrong?" into a solved problem.
 5. **Write the ticket afterwards.** If someone needs a paper trail for planning or audit, link it to the merged change.
@@ -78,4 +78,4 @@ I don't think the answer is "move fast and skip the process". The answer is to a
 
 When a change costs less than the conversation about it, the conversation should be about the change itself, with the code in front of us.
 
-I'm curious whether others are feeling the same unease, or whether I'm missing something the process is quietly protecting. What does it take to get a twenty-minute fix into production where you work?
+I'm curious whether others are feeling the same unease, or whether I'm missing something the process is quietly protecting. What does it take to get a twenty-minute fix into production where you work? Tell me on [LinkedIn](https://www.linkedin.com/in/alistair-hey/).
