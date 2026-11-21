@@ -32,10 +32,19 @@ export default defineConfig({
   ],
   fonts: [
     {
-      name: "Manrope",
-      cssVariable: "--font-manrope",
+      name: "Figtree",
+      cssVariable: "--font-figtree",
       provider: fontProviders.google(),
-      weights: ["400 800"],
+      weights: ["400 700"],
+      styles: ["normal"],
+      subsets: ["latin"],
+      fallbacks: ["ui-sans-serif", "system-ui", "sans-serif"],
+    },
+    {
+      name: "Bricolage Grotesque",
+      cssVariable: "--font-bricolage",
+      provider: fontProviders.google(),
+      weights: ["500 800"],
       styles: ["normal"],
       subsets: ["latin"],
       fallbacks: ["ui-sans-serif", "system-ui", "sans-serif"],

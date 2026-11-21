@@ -29,7 +29,7 @@ const facts = [
     <div class="mt-10 flex flex-wrap items-center gap-x-6 gap-y-4">
       <a
         href={enquiry}
-        class="rounded-full bg-brand-700 px-5 py-2.5 text-sm font-semibold text-white shadow-xs hover:bg-brand-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-700"
+        class="rounded-full bg-accent-400 px-6 py-3 text-base font-bold text-brand-950 hover:bg-accent-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-700"
       >
         Book a review
       </a>
@@ -58,7 +58,7 @@ const facts = [
     <div class="mx-auto max-w-7xl px-6 lg:px-8">
       <div class="max-w-2xl">
         <h2 class="text-base/7 font-semibold text-brand-600 dark:text-brand-400">What we look at</h2>
-        <p class="mt-2 text-3xl font-semibold tracking-tight text-pretty text-ink-900 sm:text-4xl">
+        <p class="mt-2 text-4xl font-extrabold tracking-[-0.04em] text-pretty text-ink-900 sm:text-5xl">
           The whole path from commit to production
         </p>
         <p class="mt-6 text-lg/8 text-ink-600">
@@ -92,7 +92,7 @@ const facts = [
     <div class="mx-auto max-w-7xl px-6 lg:px-8">
       <div class="max-w-2xl">
         <h2 class="text-base/7 font-semibold text-brand-600 dark:text-brand-400">How it runs</h2>
-        <p class="mt-2 text-3xl font-semibold tracking-tight text-pretty text-ink-900 sm:text-4xl">
+        <p class="mt-2 text-4xl font-extrabold tracking-[-0.04em] text-pretty text-ink-900 sm:text-5xl">
           Light on your team's time
         </p>
       </div>
@@ -100,7 +100,7 @@ const facts = [
         {
           review.steps.map((step) => (
             <li class="border-t-2 border-brand-600 pt-6">
-              <p class="font-mono text-sm font-semibold text-accent-500">{step.when}</p>
+              <p class="font-display text-base font-bold text-accent-500">{step.when}</p>
               <h3 class="mt-2 text-lg/8 font-semibold text-ink-900">{step.title}</h3>
               <p class="mt-2 text-base/7 text-ink-600">{step.body}</p>
             </li>
@@ -115,7 +115,7 @@ const facts = [
     <div class="mx-auto grid max-w-7xl grid-cols-1 gap-16 px-6 lg:grid-cols-2 lg:px-8">
       <div>
         <h2 class="text-base/7 font-semibold text-brand-600 dark:text-brand-400">What you get</h2>
-        <p class="mt-2 text-3xl font-semibold tracking-tight text-pretty text-ink-900 sm:text-4xl">
+        <p class="mt-2 text-4xl font-extrabold tracking-[-0.04em] text-pretty text-ink-900 sm:text-5xl">
           A plan, not a slide deck
         </p>
         <ul role="list" class="mt-10 space-y-4">
@@ -153,10 +153,10 @@ const facts = [
   </section>
 
   <!-- Closing CTA -->
-  <section class="bg-brand-950">
+  <section class="bg-brand-900 dark:bg-ink-100">
     <div class="mx-auto max-w-7xl px-6 py-20 sm:py-24 lg:flex lg:items-center lg:justify-between lg:px-8">
       <div>
-        <h2 class="max-w-2xl text-3xl font-semibold tracking-tight text-white sm:text-4xl">Book a platform review</h2>
+        <h2 class="max-w-2xl text-4xl font-extrabold tracking-[-0.04em] text-white sm:text-5xl">Book a platform review</h2>
         <p class="mt-4 max-w-xl text-lg/8 text-brand-100/70">
           Tell us roughly what you run and what's worrying you. We'll reply personally with dates and a fixed price.
         </p>
@@ -168,7 +168,7 @@ const facts = [
         >
           Email us about a review
         </a>
-        <a href="/contact/" class="text-sm/6 font-semibold text-white">Other ways to get in touch <span aria-hidden="true">→</span></a>
+        <a href="/contact/" class="text-sm/6 font-semibold text-white">Other ways to get in touch</a>
       </div>
     </div>
   </section>

@@ -4,11 +4,11 @@ import { author, site } from "../data/site";
 ---
 
 <aside aria-label="About the author" class="mx-auto max-w-3xl px-6 pb-16 lg:px-8">
-  <div class="flex flex-col gap-6 rounded-2xl bg-ink-100 p-8 ring-1 ring-ink-200 sm:flex-row sm:items-start">
+  <div class="flex flex-col gap-6 rounded-[2rem] bg-surface p-8 sm:flex-row sm:items-start">
     <AuthorAvatar size={72} />
     <div>
       <p class="text-sm/6 font-semibold text-ink-500">About the author</p>
-      <p class="mt-1 text-xl font-semibold tracking-tight text-ink-900">
+      <p class="mt-1 font-display text-2xl font-bold tracking-[-0.03em] text-ink-900">
         <a href={author.href} class="hover:text-brand-700 dark:hover:text-brand-300">{author.name}</a>
       </p>
       <p class="text-sm/6 text-ink-600">{author.role}</p>
@@ -16,14 +16,14 @@ import { author, site } from "../data/site";
         {author.bio.map((paragraph) => <p>{paragraph}</p>)}
       </div>
       <div class="mt-5 flex flex-wrap gap-x-6 gap-y-2 text-sm/6 font-semibold">
-        <a href={site.linkedin} class="text-brand-700 dark:text-brand-300 hover:text-brand-600 dark:hover:text-brand-200"
-          >LinkedIn <span aria-hidden="true">→</span></a
+        <a href={site.linkedin} class="text-ink-900 underline decoration-accent-400 decoration-2 underline-offset-4"
+          >LinkedIn</a
         >
-        <a href={site.github} class="text-brand-700 dark:text-brand-300 hover:text-brand-600 dark:hover:text-brand-200"
-          >GitHub <span aria-hidden="true">→</span></a
+        <a href={site.github} class="text-ink-900 underline decoration-accent-400 decoration-2 underline-offset-4"
+          >GitHub</a
         >
-        <a href={author.href} class="text-brand-700 dark:text-brand-300 hover:text-brand-600 dark:hover:text-brand-200"
-          >More about Alistair <span aria-hidden="true">→</span></a
+        <a href={author.href} class="text-ink-900 underline decoration-accent-400 decoration-2 underline-offset-4"
+          >More about Alistair</a
         >
       </div>
     </div>

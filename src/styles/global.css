@@ -6,58 +6,69 @@
 
 @theme {
   /* Self-hosted via the fonts config in astro.config.ts, which also sets the fallbacks. */
-  --font-sans: var(--font-manrope);
+  --font-sans: var(--font-figtree);
+  --font-display: var(--font-bricolage);
 
-  /* Deep teal */
-  --color-brand-50: #effaf8;
-  --color-brand-100: #d6f1ec;
-  --color-brand-200: #aee3da;
-  --color-brand-300: #7ccdc1;
-  --color-brand-400: #4bb0a3;
-  --color-brand-500: #2e9488;
-  --color-brand-600: #22766d;
-  --color-brand-700: #1f5f59;
-  --color-brand-800: #1c4c48;
-  --color-brand-900: #183f3c;
-  --color-brand-950: #0a2523;
+  /* Pine: the ink colour of the brand, also used for dark bands */
+  --color-brand-50: #eef4ef;
+  --color-brand-100: #d8e6dc;
+  --color-brand-200: #b3cdbb;
+  --color-brand-300: #86ae95;
+  --color-brand-400: #5d8d72;
+  --color-brand-500: #3f7158;
+  --color-brand-600: #2c5a45;
+  --color-brand-700: #1d4636;
+  --color-brand-800: #163a2d;
+  --color-brand-900: #10302a;
+  --color-brand-950: #0a201c;
 
-  /* Warm neutral */
-  --color-ink-50: #f8f7f4;
-  --color-ink-100: #efede8;
-  --color-ink-200: #e0ddd5;
-  --color-ink-300: #c8c3b8;
-  --color-ink-400: #a39d90;
-  --color-ink-500: #7f796d;
-  --color-ink-600: #635e54;
-  --color-ink-700: #4d4943;
-  --color-ink-800: #34312d;
-  --color-ink-900: #1f1d1a;
-  --color-ink-950: #141311;
+  /* Sage neutrals: ink-50 is the page ("sage paper"), ink-900 is pine ink */
+  --color-ink-50: #e8eee3;
+  --color-ink-100: #dde5d8;
+  --color-ink-200: #c9d4c3;
+  --color-ink-300: #aebba8;
+  --color-ink-400: #8a9a88;
+  --color-ink-500: #52695b;
+  --color-ink-600: #3d5547;
+  --color-ink-700: #2c4237;
+  --color-ink-800: #1c3129;
+  --color-ink-900: #10302a;
+  --color-ink-950: #0a201c;
 
   /* Card and panel background */
-  --color-surface: #ffffff;
+  --color-surface: #f4f7f1;
 
-  /* Warm amber accent */
-  --color-accent-300: #f8c48a;
-  --color-accent-400: #f5a65b;
-  --color-accent-500: #ec8a35;
+  /* Highlighter pink: used only where something changes for the better */
+  --color-accent-300: #ff9cc6;
+  --color-accent-400: #ff4f9a;
+  --color-accent-500: #c41f69;
 }
 
-/* Dark theme: flip the neutral scale so ink-50 is the darkest and ink-900 the lightest. */
+/* Dark theme: night pine. Flip the neutral scale so ink-50 is the darkest and ink-900 the lightest. */
 [data-theme="dark"] {
   color-scheme: dark;
-  --color-ink-50: #141311;
-  --color-ink-100: #1f1d1a;
-  --color-ink-200: #34312d;
-  --color-ink-300: #4d4943;
-  --color-ink-400: #635e54;
-  --color-ink-500: #8f897c;
-  --color-ink-600: #b3ada1;
-  --color-ink-700: #c8c3b8;
-  --color-ink-800: #e0ddd5;
-  --color-ink-900: #efede8;
-  --color-ink-950: #f8f7f4;
-  --color-surface: #1b1a17;
+  --color-ink-50: #0b1f1b;
+  --color-ink-100: #10302a;
+  --color-ink-200: #1e4037;
+  --color-ink-300: #2d5246;
+  --color-ink-400: #4a6c5e;
+  --color-ink-500: #8fa898;
+  --color-ink-600: #b2c3b7;
+  --color-ink-700: #cbd6c6;
+  --color-ink-800: #dde5d8;
+  --color-ink-900: #e8eee3;
+  --color-ink-950: #f4f7f1;
+  --color-surface: #122b26;
+  --color-accent-500: #ff7ab3;
+}
+
+@layer base {
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+  }
 }
 
 html {
@@ -74,7 +85,7 @@ html {
   --tw-prose-body: var(--color-ink-700);
   --tw-prose-headings: var(--color-ink-900);
   --tw-prose-bold: var(--color-ink-900);
-  --tw-prose-links: var(--color-brand-700);
+  --tw-prose-links: var(--color-ink-900);
   --tw-prose-bullets: var(--color-accent-400);
   --tw-prose-counters: var(--color-ink-500);
   --tw-prose-hr: var(--color-ink-200);
@@ -95,4 +106,37 @@ html {
   display: block;
   max-width: 100%;
   overflow-x: auto;
+}
+
+.prose a {
+  text-decoration-color: var(--color-accent-400);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+}
+
+.prose :where(h1, h2, h3, h4) {
+  font-family: var(--font-display);
+  letter-spacing: -0.02em;
+}
+
+/* The flatline draws itself once on load. */
+@keyframes flatline-draw {
+  from {
+    stroke-dashoffset: 1;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.flatline-draw {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 0;
+  animation: flatline-draw 2.4s cubic-bezier(0.4, 0, 0.2, 1) 0.2s both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .flatline-draw {
+    animation: none;
+  }
 }
