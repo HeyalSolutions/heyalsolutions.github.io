@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="800" viewBox="0 0 1600 800">
+<rect width="1600" height="800" fill="#10302a"/>
+<path d="M120 320 H1160 M120 480 H1160" stroke="#e8eee3" stroke-opacity="0.45" stroke-width="4"/>
+<path d="M380 210 l46 18 v34 c0 30 -22 48 -46 58 c-24 -10 -46 -28 -46 -58 v-34 z" fill="#10302a" stroke="#e8eee3" stroke-width="4" stroke-linejoin="round"/>
+<path d="M380 320 V480" stroke="#e8eee3" stroke-opacity="0.25" stroke-width="3" stroke-dasharray="6 8"/>
+<path d="M640 210 l46 18 v34 c0 30 -22 48 -46 58 c-24 -10 -46 -28 -46 -58 v-34 z" fill="#10302a" stroke="#e8eee3" stroke-width="4" stroke-linejoin="round"/>
+<path d="M640 320 V480" stroke="#e8eee3" stroke-opacity="0.25" stroke-width="3" stroke-dasharray="6 8"/>
+<path d="M900 210 l46 18 v34 c0 30 -22 48 -46 58 c-24 -10 -46 -28 -46 -58 v-34 z" fill="#10302a" stroke="#e8eee3" stroke-width="4" stroke-linejoin="round"/>
+<path d="M900 320 V480" stroke="#e8eee3" stroke-opacity="0.25" stroke-width="3" stroke-dasharray="6 8"/>
+<rect x="170" y="350" width="80" height="100" rx="10" fill="#10302a" stroke="#e8eee3" stroke-opacity="0.45" stroke-width="3"/><path d="M184 376 h44 M184 392 h30" stroke="#e8eee3" stroke-opacity="0.45" stroke-width="3" stroke-linecap="round"/>
+<rect x="470" y="350" width="80" height="100" rx="10" fill="#10302a" stroke="#e8eee3" stroke-opacity="0.6" stroke-width="3"/><path d="M484 376 h44 M484 392 h30" stroke="#e8eee3" stroke-opacity="0.6" stroke-width="3" stroke-linecap="round"/>
+<rect x="730" y="350" width="80" height="100" rx="10" fill="#10302a" stroke="#e8eee3" stroke-opacity="0.75" stroke-width="3"/><path d="M744 376 h44 M744 392 h30" stroke="#e8eee3" stroke-opacity="0.75" stroke-width="3" stroke-linecap="round"/>
+<rect x="990" y="350" width="80" height="100" rx="10" fill="#10302a" stroke="#ff4f9a" stroke-opacity="1" stroke-width="3"/><path d="M1004 376 h44 M1004 392 h30" stroke="#ff4f9a" stroke-opacity="1" stroke-width="3" stroke-linecap="round"/>
+<path d="M1110 300 V500" stroke="#ff4f9a" stroke-width="10" stroke-linecap="round"/>
+<polygon points="1435,455 1340,510 1245,455 1245,345 1340,290 1435,345" fill="none" stroke="#e8eee3" stroke-width="4"/>
+<polygon points="1388,428 1340,455 1292,428 1292,372 1340,345 1388,372" fill="none" stroke="#e8eee3" stroke-opacity="0.5" stroke-width="3"/>
+</svg>

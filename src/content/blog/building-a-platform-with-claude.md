@@ -1,7 +1,7 @@
 ---
 title: "One engineer, an AI, and 890 pull requests"
 description: "A month building a multi-tenant SaaS platform with Claude doing most of the typing. The output was never the hard part. The working agreement was: what we wrote down so many parallel threads of work didn't trip over each other, and where a person still decides."
-pubDate: 2026-12-22
+pubDate: 2026-11-25
 heroImage: ../../assets/blog/generated/claude-team.jpg
 heroAlt: "Many parallel lanes of pull requests flowing into one branch, with a few decision gates along the way"
 category: leadership
@@ -41,8 +41,8 @@ No change goes to `main` directly, ever, including typos. Every change is a bran
 its own.
 
 That turned out to need a second rule. On 13 November, with more than 20 PRs open, nothing went green for hours.
-Nothing was failing. The CI runners (a few machines at home, see
-[Part 1 of A SaaS platform at home](/blog/saas-platform-at-home/)) were a queue, and every time a PR merged
+Nothing was failing. The CI runners (a few machines at home) were a
+queue, and every time a PR merged
 `main` "to stay current", its run went to the back. The fix was a rule about batching:
 
 > One PR per feature or plan item, holding its code, tests, docs and changelog line. Fold follow-ups into the open
@@ -74,8 +74,8 @@ carries a diagram. Reviewing 30 PRs a day is only possible when you can see what
 
 PR checks are kept to about five minutes and only run what a change could break. The slow, thorough checks run
 nightly and on staging after every merge, and a failure there is fixed before anything new merges. When something
-breaks late, the first fix is the cheap check that would have caught it early. The other three parts of
-[A SaaS platform at home](/blog/saas-platform-at-home/) are what that looked like in practice.
+breaks late, the first fix is the cheap check that would have caught it early. The series A SaaS platform at home,
+starting in December, shows what that looked like in practice.
 
 ## Where a person still decides
 
